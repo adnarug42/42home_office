@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:04:33 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/08 17:45:24 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/08 18:03:47 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ The array must end with a NULL pointer.*/
 4. abaabZeeef
 		set: abababb
 */
-#include <stdlib.h>
+/*#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-//#include "libft.h"
+#include <string.h>*/
+#include "libft.h"
 
 unsigned int		count_strings(char const *s, char c);
 int					s_mem(char const *s, char c);
@@ -49,19 +49,20 @@ char **ft_split(char const *s, char c)
 
 	while (count_s <= len)
 	{
+		array_str[count_s] = (char *)malloc(sizeof(char)*s_mem(s, c) + 1);
 		while(s[i] != c && s[i] != '\0')
 			{
-				array_str[count_s] = (char *)malloc(sizeof(char*)*s_mem(s, c) + 1);
 				*array_str[count_s] = s[i];
 				i++;
-				*array_str[count_s] += 1;
-				if (s[i] == c)
+				array_str[count_s]++;
+				if (s[i] == c || s[i] == '0')
 					*array_str[count_s] = '\0';
 			}
 		i++;
 		count_s++;
 	}
-	array_str[count_s] = s1;
+	*array_str[count_s - 1] = '\0';
+	array_str[count_s++] = s1;
 	return (array_str);
 }
 
@@ -97,7 +98,7 @@ int	s_mem(char const *s, char c)
 	return (i);
 }
 
-int				main()
+/*int				main()
 {
 	char s[20] = "obladiZoblaZda";
 	char c = 'Z';
@@ -106,4 +107,4 @@ int				main()
 	array = ft_split (s, c);
 	printf ("%s", array[0]);
 	return (0);
-}
+}*/
