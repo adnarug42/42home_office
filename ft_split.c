@@ -31,6 +31,7 @@ The array must end with a NULL pointer.*/
 
 unsigned int		count_strings(char const *s, char c);
 int					s_mem(char const *s, char c);
+//int					ft_isspace(const	char *s);
 
 char **ft_split(char const *s, char c)
 {
@@ -43,14 +44,21 @@ char **ft_split(char const *s, char c)
 	count_s = 0;
 	i = 0;
 	arr_len = count_strings(s, c);
+	//printf("%d", arr_len);
 	array_str = (char **)malloc(arr_len*sizeof(char *) + sizeof(void *));
 	if (s == NULL || array_str == NULL)
 		return (NULL);
-		while (count_s < arr_len)
+	while (count_s < arr_len)
 	{
-		array_str[count_s] = (char *)malloc(sizeof(char)*s_mem(s + i, c) + 1); // mem alloc
+		while(s_mem(s + i, c) == 0)
+		{
+			array_str[count_s] = NULL;
+			count_s++;
+			i++;
+		}
+		array_str[count_s] = (char *)malloc(sizeof(char)*s_mem(s + i, c)); // mem alloc
 		p_str = array_str[count_s];
-		while(s[i ] != c && s[i] != '\0')
+		while(s[i] != c && s[i] != '\0')
 		{
 			*p_str = s[i];
 			i++;
@@ -81,10 +89,12 @@ unsigned int	count_strings(char const *s, char c)
 	counter = 0;
 	while (s[i] != '\0')
 	{
-		while(s[i] != c && s[i] != '\0')
-		{
+		if (s[i] == ' ')
 			i++;
-		}
+		while(s[i] != c && s[i + 1] != '\0')
+			{
+				i++;
+			}	
 	counter++;
 	i++;
 	}
@@ -99,11 +109,21 @@ int	s_mem(char const *s, char c)
 	i = 0;
 	while(s[i] != c && s[i] != '\0')
 		i++;
-	if (i > 0 )
-		return (i);
-	else
-		return (0);
+	if (i > 0)
+		return (i + 1);
+	return (0);
 }
+
+/*int ft_isspace(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] == ' ')
+		i++;
+	return (i);
+}*/
+
 
 
 /*#include <stdlib.h>
