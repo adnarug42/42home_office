@@ -91,6 +91,7 @@ unsigned int	count_strings(char const *s, char c)
 	return (counter);
 }
 
+
 int	s_mem(char const *s, char c)
 {
 	int				i;
