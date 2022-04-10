@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:04:33 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/08 18:03:47 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/10 10:47:38 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,35 +34,36 @@ int					s_mem(char const *s, char c);
 char **ft_split(char const *s, char c)
 {
 	char				**array_str;
-	char				*s1;
 	int					i;
 	int					count_s;
-	int					i_mem;
-	int					len;
+	int					arr_len;
 		
-	array_str = (char **)malloc(count_strings(s, c)*sizeof(char *) + 1);
+	array_str = (char **)malloc(count_strings(s, c)*sizeof(char *) + 8);
 	count_s = 0;
 	i = 0;
-	s1 = NULL;
-	i_mem = 0;
-	len = count_strings(s, c);
-
-	while (count_s <= len)
+	arr_len = count_strings(s, c);
+		while (count_s < arr_len)
 	{
-		array_str[count_s] = (char *)malloc(sizeof(char)*s_mem(s, c) + 1);
+		array_str[count_s] = (char *)malloc(sizeof(char)*s_mem(s + i, c) + 1);
 		while(s[i] != c && s[i] != '\0')
-			{
-				*array_str[count_s] = s[i];
-				i++;
-				array_str[count_s]++;
-				if (s[i] == c || s[i] == '0')
-					*array_str[count_s] = '\0';
-			}
-		i++;
-		count_s++;
+		{
+			*array_str[count_s] = s[i];
+			i++;
+			array_str[count_s]++;
+		}
+		if (s[i] == c)
+		{
+			*array_str[count_s] = '\0'; //maybe next?
+			i++;
+			count_s++;
+		}
+		else if (s[i] == '\0')
+		{
+			*array_str[count_s] = '\0'; 
+			count_s++;
+		}
 	}
-	*array_str[count_s - 1] = '\0';
-	array_str[count_s++] = s1;
+	array_str[count_s++] = NULL;
 	return (array_str);
 }
 
@@ -90,11 +91,8 @@ int	s_mem(char const *s, char c)
 	int				i;
 
 	i = 0;
-		while(s[i] != c && s[i] != '\0')
-		{
-			i++;
-		}
-
+	while(s[i] != c && s[i] != '\0')
+		i++;
 	return (i);
 }
 
