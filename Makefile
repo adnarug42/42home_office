@@ -6,7 +6,7 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 15:24:44 by pguranda          #+#    #+#              #
-#    Updated: 2022/04/08 16:06:16 by pguranda         ###   ########.fr        #
+#    Updated: 2022/04/11 11:38:34 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS	=	ft_atoi.c 		ft_bzero.c 		ft_calloc.c\
 			ft_strdup.c		ft_strlen.c		ft_strlcpy.c\
 			ft_strlcat.c	ft_strncmp.c	ft_strnstr.c\
 			ft_tolower.c	ft_toupper.c	ft_substr.c\
-			ft_strjoin.c	ft_strtrim.c	ft_split.c
+			ft_strjoin.c	ft_strtrim.c	ft_split.c\
+			ft_itoa.c
 
 OBJ		=	$(SRCS:%.c=%.o)
 
