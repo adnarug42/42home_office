@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:33:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/12 17:47:20 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:56:19 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new
+	t_list			new_node;
+	lst.next -> next = malloc(sizeof(t_list));
+	lst.next -> next = &new;
 }
