@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:15:23 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/05 14:57:52 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/14 18:19:00 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char					*sub_string;
-	unsigned int			i;
+	char			*sub_string;
+	unsigned int	i;
 
 	i = 0;
 	sub_string = (char *)(malloc(len + 1));
