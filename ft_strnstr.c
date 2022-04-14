@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:57:55 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/02 14:18:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:36:17 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int				i;
-	int				z;
-	int				temp_len;
+	size_t				i;
+	size_t				z;
+	size_t				temp_len;
 
 	i = 0;
 	z = 0;
@@ -37,5 +37,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		z = 0;
 		len--;
 	}
-	return (0);
+	return (NULL);
 }
