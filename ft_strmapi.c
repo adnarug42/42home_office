@@ -1,14 +1,20 @@
-/*
-1. Iterating through the string
-2. Taking the index of each char to the function as the first argument
-3. Using malloc to allocate the memory to the respective string
-4. Check if it is a null allocation.
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/14 11:55:11 by pguranda          #+#    #+#             */
+/*   Updated: 2022/04/14 11:56:07 by pguranda         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char				*p_s;
+	char				*p_s;
 	int					i;
 	int					len;
 

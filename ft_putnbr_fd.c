@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/12 15:39:20 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/14 11:58:12 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ int	ft_long_min(int n, int fd)
 		write(fd, "-2147483648", 11);
 		return (1);
 	}
-	else 
+	else
 		return (0);
 }

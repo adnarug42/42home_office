@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 11:06:04 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/12 12:50:12 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/14 11:56:54 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	ft_count_digits(int n)
 	}
 	while (n >= 10)
 	{
-
 		n = n / 10;
 		counter++;
 	}
