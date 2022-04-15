@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlohmann <jlohmann@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 11:15:07 by mawinter          #+#    #+#             */
-/*   Updated: 2022/04/15 11:06:13 by pguranda         ###   ########.fr       */
+/*   Created: 2022/03/30 11:18:31 by jlohmann          #+#    #+#             */
+/*   Updated: 2022/04/10 04:22:26 by jlohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,27 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*newstring;
-	int		i;
-	size_t	slen;
+	char	*ptr;
+	size_t	size;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
-	if (len > slen)
-		len = slen;
-	if (start >= ft_strlen(s))
-		return ((char *)ft_calloc(sizeof(char), 1));
-	i = -1;
-	newstring = (char *)malloc((len + 1) * sizeof(char));
-	if (newstring == NULL)
+	size = ft_strlen(s);
+	if (start > size || size == 0)
+		return (ft_strdup(""));
+	s += start;
+	size -= start;
+	if (size > len)
+		size = len;
+	ptr = malloc(sizeof(char) * (size + 1));
+	if (!ptr)
 		return (NULL);
-	while ((size_t)(++i) < len && s[(unsigned int)i + start] != '\0')
-		newstring[i] = s[i + start];
-	newstring[i] = '\0';
-	return (newstring);
+	len = size;
+	while (size > 0)
+	{
+		*(ptr++) = *(s++);
+		--size;
+	}
+	*ptr = '\0';
+	return (ptr - len);
 }
-f
