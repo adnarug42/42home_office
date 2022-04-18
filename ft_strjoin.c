@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 15:00:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/05 15:32:18 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:15:17 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int						i;
 	int						counter;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	new_string = (char *)malloc(len + 1);
 	counter = 0;

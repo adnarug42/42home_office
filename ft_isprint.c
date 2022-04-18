@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:22:13 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/05 12:12:08 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:12:15 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	if ((unsigned char)c >= 32 && (unsigned char)c < 127)
+	if (c >= 32 && c < 127)
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:25:18 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/01 15:15:42 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:05:12 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	p_dst = dst;
 	p_src = src;
+	if (src  == NULL && dst == NULL)
+		return (NULL);
 	while (n > 0)
 	{
 		*p_dst = *p_src;

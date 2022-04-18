@@ -6,14 +6,14 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 11:06:04 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/14 11:56:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 11:54:35 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #define LONG_MIN -2147483648
 
-int		ft_count_digits(int n);
+int		ft_count_digitss(int n);
 char	*ft_allocation(int n, char *s);
 
 char	*ft_itoa(int n)
@@ -26,14 +26,14 @@ char	*ft_itoa(int n)
 		ft_strlcpy(s, "-2147483648", 12);
 		return (s);
 	}
-	s = (char *)malloc((ft_count_digits(n) + 1) * sizeof(char));
+	s = (char *)malloc((ft_count_digitss(n) + 1) * sizeof(char));
 	if (s == NULL)
 		return (NULL);
 	s = ft_allocation(n, s);
 	return (s);
 }
 
-int	ft_count_digits(int n)
+int	ft_count_digitss(int n)
 {
 	int				counter;
 
@@ -58,7 +58,7 @@ char	*ft_allocation(int n, char *s)
 	int				len;
 
 	digit = 0;
-	len = ft_count_digits(n);
+	len = ft_count_digitss(n);
 	s[len] = '\0';
 	len--;
 	if (n < 0)

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:25:16 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/12 17:22:44 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:55:13 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list			node;
 
-	node.next = malloc(sizeof(t_list));
+	node.next = (t_list *) malloc(sizeof(t_list));
+	if (node.next == NULL)
+		return (NULL);
 	node.next -> content = content;
 	node.next -> next  = NULL;
 	return (node.next);

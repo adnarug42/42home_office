@@ -6,7 +6,7 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 15:24:44 by pguranda          #+#    #+#              #
-#    Updated: 2022/04/13 18:26:14 by pguranda         ###   ########.fr        #
+#    Updated: 2022/04/18 11:41:40 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,10 @@ SRCS	=	ft_atoi.c 		ft_bzero.c 		ft_calloc.c\
 
 OBJ		=	$(SRCS:%.c=%.o)
 
+BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+BONUS_OBJS = $(BONUS:.c=.o)
+
 HEADER	=	libft.h
 
 CC		=	cc
@@ -39,6 +43,9 @@ all		:	$(NAME)
 
 $(NAME)	:	$(OBJ) $(HEADER)
 	ar rcs $(NAME) $(OBJ) $?
+
+bonus : $(BONUS_OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(BONUS_OBJS)
 
 %.o		:	%.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@

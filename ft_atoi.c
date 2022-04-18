@@ -6,11 +6,13 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:52:34 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/05 18:29:10 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:24:27 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
+#define LONG_MIN -2147483648
+#define LONG_MAX 2147483647
 
 int	ft_isnum(char c);
 int	ft_white_space(const char *c);

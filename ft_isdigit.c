@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:56:19 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/05 11:23:51 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:11:20 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	if ((unsigned char)c >= 48 && (unsigned char)c <= 57)
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

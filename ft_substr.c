@@ -6,15 +6,12 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:15:23 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/15 13:03:08 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:09:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>*/
+
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -23,15 +20,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 
+	if (s == NULL )
+		return (NULL);
 	if (len > (size_t)ft_strlen(s))
 		len = (size_t)ft_strlen(s);
-	sub_string = (char *)(malloc((len + 1)*sizeof(char)));
-	if (s == NULL || sub_string == NULL)
+	sub_string = (char *)(malloc((len + 1) * sizeof(char)));
+	if (sub_string == NULL)
 		return (NULL);
-	if (start >= (unsigned int)ft_strlen(s))
+	if (start > (unsigned int)ft_strlen(s))
 	{
 		free(sub_string);
-		return ((char*)ft_calloc(1, sizeof(char)));
+		return (ft_strdup(""));
 	}
 	while (i < len && s[start] != '\0')
 	{
@@ -42,10 +41,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_string[i] = '\0';
 	return (sub_string);
 }
-
-/*int main ()
-{
-	char		s[20] = "tripouillee";
-	printf ("%s", ft_substr (s, 0, 42000));
-	return(0);
-}*/

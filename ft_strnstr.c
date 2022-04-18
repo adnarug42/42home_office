@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:57:55 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/14 16:36:17 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:22:14 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		{
 			i++;
 			z++;
-			if (haystack[i] == '\0' || needle[z] == '\0')
+			if (needle[z] == '\0')
 				return ((char *)&haystack[i - z]);
 			temp_len--;
 		}
