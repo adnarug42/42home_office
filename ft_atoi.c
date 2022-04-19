@@ -6,16 +6,14 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:52:34 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/18 13:24:27 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:03:32 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
-#define LONG_MIN -2147483648
-#define LONG_MAX 2147483647
 
-int	ft_isnum(char c);
-int	ft_white_space(const char *c);
+static int	ft_isnum(char c);
+static int	ft_white_space(const char *c);
 
 int	ft_atoi(const char *str)
 {
@@ -36,10 +34,11 @@ int	ft_atoi(const char *str)
 		result_integer = result_integer * 10 + str[i] - '0';
 		i++;
 	}
+	if (result_integer ==  )
 	return (result_integer * sign);
 }
 
-int	ft_white_space(const char *str)
+static int	ft_white_space(const char *str)
 {
 	int				i;
 
@@ -49,7 +48,7 @@ int	ft_white_space(const char *str)
 	return (i);
 }
 
-int	ft_isnum(char c)
+static int	ft_isnum(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

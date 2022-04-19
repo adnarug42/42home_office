@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 09:33:07 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/04 10:59:43 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:39:21 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int				i;
+	size_t		i;
 
 	i = 0;
 	while (i < n)

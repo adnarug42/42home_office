@@ -6,15 +6,15 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 11:06:04 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/18 11:54:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:44:08 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #define LONG_MIN -2147483648
 
-int		ft_count_digitss(int n);
-char	*ft_allocation(int n, char *s);
+static int		ft_count_digitss(int n);
+static char	*ft_allocation(int n, char *s);
 
 char	*ft_itoa(int n)
 {
@@ -33,7 +33,7 @@ char	*ft_itoa(int n)
 	return (s);
 }
 
-int	ft_count_digitss(int n)
+static int	ft_count_digitss(int n)
 {
 	int				counter;
 
@@ -52,7 +52,7 @@ int	ft_count_digitss(int n)
 	return (counter);
 }
 
-char	*ft_allocation(int n, char *s)
+static char	*ft_allocation(int n, char *s)
 {
 	int				digit;
 	int				len;

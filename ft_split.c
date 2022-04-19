@@ -6,15 +6,15 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 10:04:33 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/18 15:17:20 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:41:36 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_count_strings(char const *s, char c);
-int				ft_str_len(char const *s, char c);
-int				ft_assign(char const *s, char *p_str, char c, int i);
+static unsigned int		ft_count_strings(char const *s, char c);
+static int				ft_str_len(char const *s, char c);
+static int				ft_assign(char const *s, char *p_str, char c, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -47,7 +47,7 @@ char	**ft_split(char const *s, char c)
 	return (arr_str);
 }
 
-int	ft_assign(char const *s, char *p_str, char c, int i)
+static int	ft_assign(char const *s, char *p_str, char c, int i)
 {
 	while (s[i] != c && s[i] != '\0')
 	{
@@ -59,7 +59,7 @@ int	ft_assign(char const *s, char *p_str, char c, int i)
 	return (i);
 }
 
-unsigned int	ft_count_strings(char const *s, char c)
+static unsigned int	ft_count_strings(char const *s, char c)
 {
 	int				i;
 	int				counter;
@@ -77,7 +77,7 @@ unsigned int	ft_count_strings(char const *s, char c)
 	return (counter);
 }
 
-int	ft_str_len(char const *s, char c)
+static int	ft_str_len(char const *s, char c)
 {
 	int				i;
 

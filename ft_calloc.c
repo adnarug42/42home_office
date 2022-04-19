@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:19:34 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/18 15:38:15 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:29:04 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void				*p;
+	void	*p;
 
+	if (size > 0 && (SIZE_MAX / size) < count)
+		return (NULL);
 	p = malloc (count * size);
 	if (p == NULL)
 		return (NULL);
