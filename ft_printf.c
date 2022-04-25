@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/25 16:11:06 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:11:28 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 		Go to that address and put in the element
 ((*s + 1) == 'c') || (*s + 1) == "s" || (*s + 1) == "p" || (*s + 1) == "d" || (*s + 1) == "i" || (*s + 1) == "u" || (*s + 1) == "x" || (*s + 1) == "X" || (*s + 1) == "%%"
 */
-#include "libft/libft.h"
+//#include "libft/libft.h"
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -61,15 +61,15 @@ static int	ft_parse_args(const char *s)
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%') 
-			i++;
-		count++;
+			count++;
+		i++;
 	}
 	return (count);
 }
 
 int main ()
 {
-	ft_printf("Hello %s how are you %i and how many who knows", "privet", 24);
+	ft_printf("Hello %s how are you %i and how many who knows %% %d %p", "privet", 24);
 	return(0);
 }
 
