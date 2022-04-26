@@ -6,11 +6,12 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 15:24:44 by pguranda          #+#    #+#              #
-#    Updated: 2022/04/22 13:51:54 by pguranda         ###   ########.fr        #
+#    Updated: 2022/04/26 20:38:12 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
+
 
 SRCS	=	ft_atoi.c 		ft_bzero.c 		ft_calloc.c\
 			ft_isalnum.c	ft_isalpha.c	ft_isascii.c\
@@ -27,7 +28,7 @@ SRCS	=	ft_atoi.c 		ft_bzero.c 		ft_calloc.c\
 			ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c\
 			ft_lstdelone.c	ft_lstclear.c	ft_lstiter.c\
 			ft_lstmap.c
-
+			
 OBJ		=	$(SRCS:%.c=%.o)
 
 BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
@@ -42,7 +43,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ) $(HEADER)
-	ar rcs $(NAME) $(OBJ) $?
+	ar rcs $(NAME) $(OBJ) 
 
 bonus : $(BONUS_OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(BONUS_OBJS)
@@ -57,3 +58,5 @@ fclean	:	clean
 	@$(RM) $(NAME)
 
 re		:	fclean all
+
+.PHONY	: clean all fclean

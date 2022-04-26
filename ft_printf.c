@@ -6,48 +6,34 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/25 17:11:28 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/26 21:26:31 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-- Function to handle different cases:
-	- Parse the string and count the number of the arguments
-	FT_PARSE: count the arguments IN: const char*s OUT: number of arguments 
-	NUANCE:
-		- Check if %%
-	- Read the letters in the flags
-	If that is a % the read the flag and go over again 
-	- Call on the va_arg with the respective type
-	- Continue doing it until it is exhausted 
-	- Go through the string and find the spots where the special elements are used. Return the address  
-		Loop through the string and find the symbol and keep a couunt of which element (maybe in the function)
-		Return the address
-	- Input the respective element with the corresponding type
-		Go to that address and put in the element
-((*s + 1) == 'c') || (*s + 1) == "s" || (*s + 1) == "p" || (*s + 1) == "d" || (*s + 1) == "i" || (*s + 1) == "u" || (*s + 1) == "x" || (*s + 1) == "X" || (*s + 1) == "%%"
-*/
-//#include "libft/libft.h"
-#include <stdarg.h>
-#include <stdio.h>
+#include "include/printf.h"
 
 static int	ft_parse_args(const char *s);
+static lst_arg	*ft_decoding(const char *s);
 
 int ft_printf(const char *s, ...)
 {
 	va_list		ap;
 	//va_list		ap_copy;
-	//size_t		i;
+	size_t		i;
 	char			*str;
 	unsigned int	number;
+	lst_arg			*arg;
 
 	va_start(ap, s);
 	str = va_arg(ap, char *);
 	number = va_arg(ap, int);
-	/*ft_putstr_fd(str, 1);
-	ft_putnbr_fd(number , 1);*/
 	va_end (ap);
-	printf ("%i", ft_parse_args(s));
+	ft_putstr_fd(str, 1);
+	ft_putnbr_fd(number , 1);
+	i = ft_parse_args(s);
+	arg = ft_decoding(s);
+	printf ("%c", arg->specifier);
+	free(arg);
 	return (0);
 }
 
@@ -67,9 +53,30 @@ static int	ft_parse_args(const char *s)
 	return (count);
 }
 
-int main ()
+static lst_arg	*ft_decoding(const char *s)
 {
-	ft_printf("Hello %s how are you %i and how many who knows %% %d %p", "privet", 24);
-	return(0);
+	size_t		i;
+	lst_arg		*arg;
+
+	i = 0;
+	arg = malloc(sizeof(lst_arg));
+	while (s[i] != '\0')
+	{
+		if (s[i] == '%' && ft_strchr(SPECIFIERS, s[i + 1]) == NULL) // making sure it is an argument
+		{ 
+			while (ft_strchr(SPECIFIERS, s[i++]) != NULL) // starting to decode arguments into a struct 
+			{
+			}
+			arg->specifier = s[i];
+			break;
+		}
+	i++;
+	}
+	return (arg);
 }
 
+int main ()
+{
+	ft_printf("Hello %s how are you %i and how many who knows", "privet", 24);
+	return(0);
+}
