@@ -6,10 +6,15 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/27 17:09:00 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/27 17:31:21 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+TO DO:
+1. Finish getting the address and the lenght of the string
+2. Simplify ft_decoding here
+3. Creating chained list with the arguments 
+*/
 #include "include/printf.h"
 
 static int	ft_parse_args(const char *s);

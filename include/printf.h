@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/27 14:22:14 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/27 17:22:13 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 # define SPECIFIERS "cspdiuxX%%"
-# define FLAGS "##+- 0"
-# define SPECIFIERS_FLAGS "cspdiuxX%%##+- 0"
+# define FLAGS "#+- 0"
+# define SPECIFIERS_FLAGS "cspdiuxX%%#+- 0"
 
 typedef struct lst_arg
 {
 	char			flags;
-	char			width;
-	char			precision;
+	int				width;
+	int				precision;
 	char			length;
 	char			specifier;
 	struct lst_arg	*next;
