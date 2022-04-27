@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_lstadd_front_arg.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/27 14:22:14 by pguranda         ###   ########.fr       */
+/*   Created: 2022/04/27 16:29:44 by pguranda          #+#    #+#             */
+/*   Updated: 2022/04/27 16:36:50 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include <stdarg.h>
-# include "../libft/libft.h"
-# define SPECIFIERS "cspdiuxX%%"
-# define FLAGS "##+- 0"
-# define SPECIFIERS_FLAGS "cspdiuxX%%##+- 0"
+#include "include/printf.h"
 
-typedef struct lst_arg
+void	ft_lstadd_front_arg(lst_arg **lst, lst_arg *new)
 {
-	char			flags;
-	char			width;
-	char			precision;
-	char			length;
-	char			specifier;
-	struct lst_arg	*next;
-}	lst_arg;
-
-lst_arg *ft_decode_char(char *s, size_t i, lst_arg *arg);
-
-#endif
+	if (lst == NULL || new == NULL)
+		return ;
+	new -> next = *lst;
+	*lst = new;
+}

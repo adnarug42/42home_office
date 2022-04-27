@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_arg_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/27 14:22:14 by pguranda         ###   ########.fr       */
+/*   Created: 2022/04/27 17:03:51 by pguranda          #+#    #+#             */
+/*   Updated: 2022/04/27 17:13:57 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
-# include <stdarg.h>
-# include "../libft/libft.h"
-# define SPECIFIERS "cspdiuxX%%"
-# define FLAGS "##+- 0"
-# define SPECIFIERS_FLAGS "cspdiuxX%%##+- 0"
+#include "include/printf.h"
 
-typedef struct lst_arg
+char    *ft_arg_str(const char *s)
 {
-	char			flags;
-	char			width;
-	char			precision;
-	char			length;
-	char			specifier;
-	struct lst_arg	*next;
-}	lst_arg;
+	size_t		i;
+	size_t		z;
 
-lst_arg *ft_decode_char(char *s, size_t i, lst_arg *arg);
-
-#endif
+	i = 0;
+	count = 0;
+	if (s[z] == '%' && ft_strchr(SPECIFIERS_FLAGS, s[z + 1]) != NULL) // making sure it is an argument with alignment or flags
+		{
+			i++;
+			printf("check");
+			arg_start = i;
+			arg_len = 1;
+			while (ft_strchr(SPECIFIERS, s[i]) == NULL)
+			{
+				i++;
+				arg_len++;
+			}
+		}
+	return ()
+}
