@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_decode.c                                        :+:      :+:    :+:   */
+/*   ft_decode_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/27 16:32:22 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/28 16:34:41 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/printf.h"
 
 //1. takes the char and the struct, returns a struct
+int	ft_digit(int c);
 
-lst_arg *ft_decode_char(char *s, size_t i, lst_arg *arg)
+lst_arg *ft_decode_char(char *s, size_t i)
 {
+	lst_arg	*arg;
 	size_t	counter;
+	int		flag_or_zero;
 	char	*address_dot;
 
 	counter = 0;
 	address_dot = NULL;
-	arg->specifier = (char)s[i - 1];
-	while (counter != i - 1)
+	arg = malloc(sizeof(lst_arg));
+	arg->specifier = s[i - 1];
+	flag_or_zero = 0;
+	while (counter != (i - 1))
 	{
-		if (ft_strchr(SPECIFIERS, s[counter]))
-			arg->specifier = s[counter];
-		if (ft_strchr(FLAGS, s[counter]))
-			arg->flags = s[counter];
+		if (ft_digit(s[counter]) == 1 && flag_or_zero == 0)
+			flag_or_zero = 1;
+		if (ft_strchr(FLAGS, s[counter]) != NULL)
+		{
+			if ((s[counter] == '0' && flag_or_zero == 0) || (s[counter] != '0'))
+				arg->flags = s[counter];
+		}
 		if (s[counter] == '.')
 		{
 			arg->precision = ft_atoi(s + counter + 1);
@@ -38,4 +46,11 @@ lst_arg *ft_decode_char(char *s, size_t i, lst_arg *arg)
 		counter++; 
 	}
 return (arg);
+}
+
+int	ft_digit(int c)
+{
+	if (c > '0' && c <= '9')
+		return (1);
+	return (0);
 }
