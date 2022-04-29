@@ -6,13 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/29 13:22:05 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:02:35 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*1. Finish getting the address and the lenght of the string
-2. Simplify ft_decoding here
-3. Creating chained list with the arguments 
+/*1.ft_writing hex reverse
 */
 #include "include/printf.h"
 
@@ -88,7 +86,7 @@ lst_arg *ft_printf(const char *s, ...)
 	arg_start = 0;
 	arg_len = 0;
 	first_arg = malloc(sizeof(lst_arg));
-	num_of_args = 1;
+	num_of_args = 1;	
 	arg_start = find_start(s);
 	arg_len = find_len(s, arg_start);
 	while (s[i] < arg_start)
@@ -106,7 +104,10 @@ lst_arg *ft_printf(const char *s, ...)
 int main ()
 {
 	lst_arg	*first_arg;
-	first_arg = ft_printf("Hello how are you %i and how many who knows", 24);
+	char *str;
+
+	str = "check";
+	first_arg = ft_printf("Hello %p how %i are you %c and %i how many who %i knows %i %s", str, 0, 'a', 1, 2, 3, "string");
 
 	return(0);
 }

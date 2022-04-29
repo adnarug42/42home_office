@@ -6,11 +6,13 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/29 13:22:22 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:01:47 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/printf.h"
+
+void	ft_put_pointer(void *pointer);
 
 lst_arg	*ft_decode_all(const char *s, size_t z)
 {
@@ -22,6 +24,7 @@ lst_arg	*ft_decode_all(const char *s, size_t z)
 	str_arg = 0;
 	arg_len = find_len(s, z);
 	str_arg = ft_substr(s, z, arg_len);
+
 	first_arg = ft_decode_char(str_arg, arg_len);
 	return (first_arg);
 }
@@ -29,8 +32,19 @@ lst_arg	*ft_decode_all(const char *s, size_t z)
 
 void	write_decoded(lst_arg *first_arg, va_list ap)
 {
-	if (first_arg->specifier == 'i')
+		char	*str_arg;
+
+		str_arg = NULL;
+	if (first_arg->specifier == ('i') || first_arg->specifier == 'd')
 		ft_putnbr_fd(va_arg(ap, int), 1);
+	if (first_arg->specifier == 'c')
+		ft_putchar_fd(va_arg(ap, int), 1);
+	if (first_arg->specifier == 's')
+		ft_putstr_fd(va_arg(ap, char*), 1);
+	if (first_arg->specifier == '%')
+		write(1, "%%", 1);
+	if (first_arg->specifier == 'p')
+		ft_put_pointer(str_arg);
 }
 
 size_t	find_len(const char *s, size_t arg_start)
@@ -41,4 +55,41 @@ size_t	find_len(const char *s, size_t arg_start)
 	while (ft_strchr(SPECIFIERS, s[arg_start + len]) == NULL)
 		len++;
 	return (len + 1);
+}
+void	ft_put_pointer(void *pointer)
+{
+	write(1, "0x", 2);
+	ft_putnbr_fd(&pointer, 1);
+	////printf("address of pointer is: 0x%0X\n", (unsigned)&p);
+     /////printf("address of pointer to pointer is: 0x%0X\n", (unsigned)&p_ptr);
+
+}
+
+ft_hex(int i)
+{
+	int	r;
+	int i;
+	while (i >= 0)
+	{
+		r = (i % 16) * 16;
+		i = i / 16; 
+		hex_convert(r)
+	}
+}
+void hex_convert (int r)
+{
+	if (r == 10)
+		r = 'A';
+	if (r == 11)
+		r = 'B';
+	if (r == 12)
+		r = 'C';
+	if (r == 13)
+		r = 'D';
+	if (r == 14)
+		r = 'E';
+	if (r == 15)
+		r = 'F';
+	write (1, r, 1);
+ return (r);
 }
