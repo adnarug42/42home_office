@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/28 16:15:56 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:07:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@ typedef struct lst_arg
 	char			flags;
 	int				width;
 	int				precision;
-	int				length;
+	size_t			length;
 	char			specifier;
 	struct lst_arg	*next;
 }	lst_arg;
 
 lst_arg *ft_decode_char(char *s, size_t i);
+lst_arg	*ft_decode_all(const char *s, size_t z);
+void	write_decoded(lst_arg *first_arg, va_list ap);
+size_t	find_len(const char *s, size_t arg_start);
+
 //printf ("%c %i %i %i %c", first_arg->flags, first_arg->width, first_arg->precision, first_arg->length, first_arg->specifier);
 #endif

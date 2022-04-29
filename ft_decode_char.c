@@ -6,13 +6,12 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/28 16:34:41 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:07:48 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/printf.h"
 
-//1. takes the char and the struct, returns a struct
 int	ft_digit(int c);
 
 lst_arg *ft_decode_char(char *s, size_t i)
@@ -26,6 +25,7 @@ lst_arg *ft_decode_char(char *s, size_t i)
 	address_dot = NULL;
 	arg = malloc(sizeof(lst_arg));
 	arg->specifier = s[i - 1];
+	arg->length = i;
 	flag_or_zero = 0;
 	while (counter != (i - 1))
 	{

@@ -6,26 +6,39 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/28 17:39:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:22:22 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_writing(const char )
+#include "include/printf.h"
+
+lst_arg	*ft_decode_all(const char *s, size_t z)
 {
-while ( s[i])
-    write(1, )
+	lst_arg	*first_arg;
+	size_t	arg_len;
+	char	*str_arg;
+
+	arg_len = 0;
+	str_arg = 0;
+	arg_len = find_len(s, z);
+	str_arg = ft_substr(s, z, arg_len);
+	first_arg = ft_decode_char(str_arg, arg_len);
+	return (first_arg);
 }
-/*
-1. Write every charachter
-2. If hit the argument do the decoding
-3. Then do the printing of the decoded argument
-4. Continue parsing 
-5. Continue until it hits the end 
-*/
 
 
-while (s[i] != '\0')
+void	write_decoded(lst_arg *first_arg, va_list ap)
 {
-    write (1, &c, 1)
-    if (s[i] == '%' && s[i + 1] == NULL)
+	if (first_arg->specifier == 'i')
+		ft_putnbr_fd(va_arg(ap, int), 1);
+}
+
+size_t	find_len(const char *s, size_t arg_start)
+{
+	size_t	len;
+
+	len = 0;
+	while (ft_strchr(SPECIFIERS, s[arg_start + len]) == NULL)
+		len++;
+	return (len + 1);
 }

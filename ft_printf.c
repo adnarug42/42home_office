@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/28 17:36:50 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:22:05 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,37 @@
 */
 #include "include/printf.h"
 
-static int		ft_parse_args(const char *s);
-static			lst_arg	*ft_decoding(const char *s, size_t num_of_args);
-
 lst_arg *ft_printf(const char *s, ...)
 {
 	va_list			ap;
-
 	size_t			i;
-	unsigned int	number;
+	size_t			z;
 	lst_arg			*arg;
-	char			*str;
 
-	arg = NULL;
+	arg = malloc(sizeof(lst_arg));
+	z = 0;
+	i = 0;
+	/*i = ft_parse_args(s);
+	printf("No. of args:%zu \n", i);
+	arg = ft_decoding(s, i);*/
 	va_start(ap, s);
-	str = va_arg(ap, char *);
-	number = va_arg(ap, int);
+	while (s[i] != '\0')
+	{
+		if (s[i] == '%' && ft_strchr(SPECIFIERS_FLAGS, s[i + 1]) != NULL)
+		{
+			arg = ft_decode_all(s, i + 1);
+			write_decoded(arg, ap);
+			i += arg->length;
+		}
+		else
+			write(1, &s[i], 1);
+		i++;
+	}
 	va_end (ap);
-	i = ft_parse_args(s);
-	printf("No of args:%zu \n", i);
-	arg = ft_decoding(s, i);
 	return (arg);
 }
 
-static int	ft_parse_args(const char *s)
+/*static int	ft_parse_args(const char *s)
 {
 	size_t	i;
 	size_t	count;
@@ -53,9 +60,9 @@ static int	ft_parse_args(const char *s)
 		i++;
 	}
 	return (count);
-}
+}*/
 
-size_t	find_start(const char *s) // could be that after %come a flag but specifier never comes?
+/*size_t	find_start(const char *s) // could be that after %come a flag but specifier never comes?
 {
 	size_t		i;
 
@@ -67,20 +74,10 @@ size_t	find_start(const char *s) // could be that after %come a flag but specifi
 			return(i + 1); // starting from the next element
 	}
 	return (0);
-}
-
-size_t	find_len(const char *s, size_t arg_start)
-{
-	size_t	len;
-
-	len = 0;
-	while (ft_strchr(SPECIFIERS, s[arg_start + len]) == NULL)
-		len++;
-	return (len + 1);
-}
+}*/
 
 
-static lst_arg	*ft_decoding(const char *s, size_t num_of_args)
+/*static lst_arg	*ft_decoding(const char *s, size_t num_of_args)
 {
 	lst_arg		*first_arg;
 	size_t		arg_start;
@@ -104,12 +101,12 @@ static lst_arg	*ft_decoding(const char *s, size_t num_of_args)
 	first_arg = ft_decode_char(str_arg, arg_len);
 	write_function
 	return(first_arg);
-}
+}*/
 
 int main ()
 {
 	lst_arg	*first_arg;
-	first_arg = ft_printf("Hello %-+01.15s how are you %+13.12s and how many who knows", "privet", 24);
-	printf ("F:%c W:%i P:%i L:%i S:%c", first_arg->flags, first_arg->width, first_arg->precision, first_arg->length, first_arg->specifier);
+	first_arg = ft_printf("Hello how are you %i and how many who knows", 24);
+
 	return(0);
 }
