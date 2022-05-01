@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/29 17:01:47 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/01 13:27:44 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ void	write_decoded(lst_arg *first_arg, va_list ap)
 		write(1, "%%", 1);
 	if (first_arg->specifier == 'p')
 		ft_put_pointer(str_arg);
+	if (first_arg->specifier == 'X')
+		ft_hec_up(va_arg(ap, int));
+	if (first_arg->specifier == 'x')
+		ft_hex_low(va_arg(ap, int));
 }
 
 size_t	find_len(const char *s, size_t arg_start)
@@ -61,35 +65,6 @@ void	ft_put_pointer(void *pointer)
 	write(1, "0x", 2);
 	ft_putnbr_fd(&pointer, 1);
 	////printf("address of pointer is: 0x%0X\n", (unsigned)&p);
-     /////printf("address of pointer to pointer is: 0x%0X\n", (unsigned)&p_ptr);
+    /////printf("address of pointer to pointer is: 0x%0X\n", (unsigned)&p_ptr);
 
-}
-
-ft_hex(int i)
-{
-	int	r;
-	int i;
-	while (i >= 0)
-	{
-		r = (i % 16) * 16;
-		i = i / 16; 
-		hex_convert(r)
-	}
-}
-void hex_convert (int r)
-{
-	if (r == 10)
-		r = 'A';
-	if (r == 11)
-		r = 'B';
-	if (r == 12)
-		r = 'C';
-	if (r == 13)
-		r = 'D';
-	if (r == 14)
-		r = 'E';
-	if (r == 15)
-		r = 'F';
-	write (1, r, 1);
- return (r);
 }
