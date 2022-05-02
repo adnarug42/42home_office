@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_hex_low.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/01 13:24:52 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/02 12:40:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/printf.h"
-void ft_hex(int i)
+
+void ft_hex_low(unsigned int i)
 {
 	char	*hexa_num;
 	int		r;
 	int		counter;
+	int		z;
 
 	counter = 0;
 	r = 0;
+	z = 0;
 	hexa_num = malloc(sizeof(char) * 16);
+	if (hexa_num == NULL)
+		return ;
 	while (i != 0)
 	{
 		r = i % 16;
@@ -30,17 +35,15 @@ void ft_hex(int i)
 		}
 		else
 		{
-			*hexa_num = r + 55;
+			*hexa_num = r + 87;
 			hexa_num++;
 		}
 		i = i / 16;
 		counter++;
 	}
-   	*hexa_num = '\0';
 	while (counter >= 0)
 	{
-		write (1, hexa_num - counter, 1);
+		write (1, hexa_num-- , 1);
 		counter--;
 	}
-		write (1, &hexa_num[0], 1);
 }

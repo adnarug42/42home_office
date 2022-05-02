@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_up.c                                        :+:      :+:    :+:   */
+/*   ft_hex_return.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/02 12:40:31 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/02 14:56:28 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/02 14:56:53 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/printf.h"
 
-void ft_hex_up(unsigned int i)
+void ft_hex_return(unsigned int i)
 {
 	char	*hexa_num;
 	int		r;
@@ -35,16 +35,15 @@ void ft_hex_up(unsigned int i)
 		}
 		else
 		{
-			*hexa_num = r + 55;
+			*hexa_num = r + 87;
 			hexa_num++;
 		}
 		i = i / 16;
 		counter++;
 	}
-	hexa_num -=counter;
 	while (counter >= 0)
 	{
-		write (1, hexa_num++ , 1);
+		write (1, hexa_num-- , 1);
 		counter--;
 	}
 }

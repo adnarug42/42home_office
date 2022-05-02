@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/01 13:27:44 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:32:42 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	write_decoded(lst_arg *first_arg, va_list ap)
 		char	*str_arg;
 
 		str_arg = NULL;
-	if (first_arg->specifier == ('i') || first_arg->specifier == 'd')
+	if (first_arg->specifier == ('i') || first_arg->specifier == 'd') // + or -
 		ft_putnbr_fd(va_arg(ap, int), 1);
 	if (first_arg->specifier == 'c')
 		ft_putchar_fd(va_arg(ap, int), 1);
@@ -44,11 +44,13 @@ void	write_decoded(lst_arg *first_arg, va_list ap)
 	if (first_arg->specifier == '%')
 		write(1, "%%", 1);
 	if (first_arg->specifier == 'p')
-		ft_put_pointer(str_arg);
+		ft_put_pointer(va_arg(ap, void*));
 	if (first_arg->specifier == 'X')
-		ft_hec_up(va_arg(ap, int));
+		ft_hex_up(va_arg(ap, int));
 	if (first_arg->specifier == 'x')
 		ft_hex_low(va_arg(ap, int));
+	if (first_arg->specifier == 'u')
+		ft_putnbr_fd(va_arg(ap, unsigned int), 1);
 }
 
 size_t	find_len(const char *s, size_t arg_start)
@@ -60,11 +62,15 @@ size_t	find_len(const char *s, size_t arg_start)
 		len++;
 	return (len + 1);
 }
+
 void	ft_put_pointer(void *pointer)
 {
-	write(1, "0x", 2);
-	ft_putnbr_fd(&pointer, 1);
-	////printf("address of pointer is: 0x%0X\n", (unsigned)&p);
-    /////printf("address of pointer to pointer is: 0x%0X\n", (unsigned)&p_ptr);
+	unsigned int	address;
 
+	address = (unsigned int)pointer;
+	write(1, "0x10", 4);
+	ft_hex_low(address);
+	return	;
 }
+
+ft_putnbr_fd(va_arg(ap, unsigned int), 1);

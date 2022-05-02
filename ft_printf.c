@@ -6,13 +6,14 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/29 17:02:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:32:14 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*1.ft_writing hex reverse
 */
 #include "include/printf.h"
+#include <stdio.h>
 
 lst_arg *ft_printf(const char *s, ...)
 {
@@ -103,11 +104,18 @@ lst_arg *ft_printf(const char *s, ...)
 
 int main ()
 {
-	lst_arg	*first_arg;
-	char *str;
+	void *s;
 
-	str = "check";
-	first_arg = ft_printf("Hello %p how %i are you %c and %i how many who %i knows %i %s", str, 0, 'a', 1, 2, 3, "string");
+	s = "null";
+
+	ft_printf("*********FT_PRINTF*******\n\
+Here is a hex x: %x\nHere is an int: %i\nHere is a char: %c\nHere is a str: %s\n\
+Here is %%: %% \nHere is pointer: %p\n Here is unisgned: %u\n",\
+ 0x564F86, 25, 'a', "privet", s, -5);
+	printf("\n**********PRINTF*********\n\
+Here is a hex x: %x\nHere is an int: %i\nHere is a char: %c\nHere is a str: %s\n\
+Here is %%: %% \nHere is pointer: %p\nHere is unsigned: %u",
+ 0x564F86, 25, 'a', "privet", s, -5);
 
 	return(0);
 }

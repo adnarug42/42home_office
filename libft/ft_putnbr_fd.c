@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/19 15:34:45 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/02 12:55:16 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define LONG_MIN -2147483648
 #define LONG_MAX 2147483647
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(unsigned int n, int fd)
 {
 	if (n > LONG_MAX || n < LONG_MIN)
 		return ;
