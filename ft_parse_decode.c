@@ -6,11 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 17:29:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:03:35 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/printf.h"
+#include "include/ft_printf.h"
 
 lst_arg	*parse_args(const char *s, size_t z)
 {

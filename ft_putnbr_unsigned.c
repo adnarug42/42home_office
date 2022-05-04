@@ -6,14 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/03 10:40:14 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:02:40 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/printf.h"
-
-#define LONG_MIN -2147483648
-#define LONG_MAX 2147483647
+#include "include/ft_printf.h"
 
 void	ft_putnbr_unsigned(unsigned int n, int fd)
 {

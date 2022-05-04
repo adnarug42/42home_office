@@ -6,22 +6,21 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 17:27:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:13:30 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/printf.h"
-#include <stdio.h>
+#include "include/ft_printf.h"
 
-lst_arg *ft_printf(const char *s, ...)
+int ft_printf(const char *s, ...)
 {
 	va_list			ap;
-	size_t			i;
+	int			i;
 	lst_arg			*arg;
 
 	arg = malloc(sizeof(lst_arg));
 	if (arg == NULL)
-		return NULL;
+		return 0;
 	i = 0;
 	va_start(ap, s);
 	while (s[i] != '\0')
@@ -37,9 +36,9 @@ lst_arg *ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end (ap);
-	printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
- precision: %d \n length: %zu \n specifier: %c \n \n", arg->is_hash, arg->is_minus, arg->is_zero, arg->is_plus, arg->is_space, arg->width, arg->precision, arg->length, arg->specifier);
-	return (arg);
+	/*printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
+ precision: %d \n length: %zu \n specifier: %c \n \n", arg->is_hash, arg->is_minus, arg->is_zero, arg->is_plus, arg->is_space, arg->width, arg->precision, arg->length, arg->specifier);*/
+	return (i);
 }
 
 int main ()

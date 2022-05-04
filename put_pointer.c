@@ -6,11 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 16:52:45 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 16:54:52 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:11:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/printf.h"
+#include "include/ft_printf.h"
 
 void	put_pointer(void *pointer)
 {

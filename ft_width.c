@@ -6,12 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 10:50:51 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 15:08:14 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:02:32 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/printf.h"
-#include <stdio.h>
+#include "include/ft_printf.h"
 
 void ft_width(size_t width)
 {

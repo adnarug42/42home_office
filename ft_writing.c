@@ -6,11 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 17:28:18 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:02:22 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/printf.h"
+#include "include/ft_printf.h"
 
 void	write_struct(lst_arg *arg, va_list ap)
 {
