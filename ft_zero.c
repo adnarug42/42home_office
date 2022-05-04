@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pointer.c                                   :+:      :+:    :+:   */
+/*   ft_zero.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 15:10:03 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/29 15:14:44 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/03 13:47:15 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/03 13:59:42 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_put_pointer(void *pointer)
+#include "include/printf.h"
+
+void ft_zero(size_t width)
 {
-	write(1, "0x", 2);
-	write (1, &pointer, 9);
+	while (width > 0)
+	{
+		write (1, "0", 1);
+		width--;
+	}
 }

@@ -1,49 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_up.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 16:40:04 by pguranda         ###   ########.fr       */
+/*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/04 15:20:34 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/printf.h"
 
-void ft_hex_up(unsigned int i)
+void	putnbr_with_zeros(int precision, int num)
 {
-	char	*hexa_num;
-	int		r;
-	int		counter;
-	int		z;
+	int	i;
+	int diff;
 
-	counter = 0;
-	r = 0;
-	z = 0;
-	hexa_num = malloc(sizeof(char) * 16);
-	if (hexa_num == NULL)
-		return ;
-	while (i != 0)
+	i = 0;
+	diff = 0;
+	while (num != 0)
 	{
-		r = i % 16;
-		if (r < 10)
-		{
-			*hexa_num = r + 48;
-			hexa_num++;
-		}
-		else
-		{
-			*hexa_num = r + 55;
-			hexa_num++;
-		}
-		i = i / 16;
-		counter++;
+		num = num/10;
+		i++;
 	}
-	while (counter >= 0)
+	if (i <= precision)
 	{
-		write(1, hexa_num-- , 1);
-		counter--;
+		write (1, "0", 1);
+		i++;
 	}
+	ft_putnbr_fd(num, 1);
 }

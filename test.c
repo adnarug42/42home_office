@@ -3,7 +3,7 @@
 
 int main ()
 {
-	printf(" %u \n", 56);
+	printf("*%20s*\n", "privet");
 
 	return (0);
 }
