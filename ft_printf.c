@@ -6,12 +6,10 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 16:40:33 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:27:54 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*1.ft_writing hex reverse
-*/
 #include "include/printf.h"
 #include <stdio.h>
 
@@ -19,19 +17,19 @@ lst_arg *ft_printf(const char *s, ...)
 {
 	va_list			ap;
 	size_t			i;
-	size_t			z;
 	lst_arg			*arg;
 
 	arg = malloc(sizeof(lst_arg));
-	z = 0;
+	if (arg == NULL)
+		return NULL;
 	i = 0;
 	va_start(ap, s);
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')
 		{
-			arg = ft_decode_all(s, i + 1);
-			write_decoded(arg, ap);
+			arg = parse_args(s, i + 1);
+			write_struct(arg, ap);
 			i += arg->length;
 		}
 		else
@@ -41,7 +39,6 @@ lst_arg *ft_printf(const char *s, ...)
 	va_end (ap);
 	printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
  precision: %d \n length: %zu \n specifier: %c \n \n", arg->is_hash, arg->is_minus, arg->is_zero, arg->is_plus, arg->is_space, arg->width, arg->precision, arg->length, arg->specifier);
-
 	return (arg);
 }
 
@@ -53,12 +50,12 @@ int main ()
 
 	ft_printf("*********FT_PRINTF*******\n\
 Here is a hex x: %#X\nHere is an int: %d\nHere is a char: %c\n\
-Here is %%: %% \nHere is pointer: %p\nHere is unsigned: %u \nHere is a str:*%010.5s*\n",\
+Here is %%: %% \nHere is pointer: %p\nHere is unsigned: %u \nHere is a str:*%10.5s*\n",\
  0x564F86, 25, 'a', s, -5, "privet");
  //ft_printf("*****FT_PRINTF********\nHere is: %23.0s", "proverka");
 	printf("\n**********PRINTF*********\n\
 Here is a hex x: %#X\nHere is an int: %d\nHere is a char: %c\n\
-Here is %%: %% \nHere is pointer: %p\nHere is unsigned: %u\nHere is a str:*%010.5s*\n",
+Here is %%: %% \nHere is pointer: %p\nHere is unsigned: %u\nHere is a str:*%10.5s*\n",
  +0x564F86, 25, 'a', s, -5, "privet");
 	return(0);
 }
