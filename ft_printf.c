@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 18:13:30 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/05 14:05:03 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int ft_printf(const char *s, ...)
 	return (i);
 }
 
-int main ()
+/*int main ()
 {
 	void *s;
 
@@ -57,4 +57,4 @@ Here is a hex x: %#X\nHere is an int: %d\nHere is a char: %c\n\
 Here is %%: %% \nHere is pointer: %p\nHere is unsigned: %u\nHere is a str:*%10.5s*\n",
  +0x564F86, 25, 'a', s, -5, "privet");
 	return(0);
-}
+}*/

@@ -6,7 +6,7 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 15:24:44 by pguranda          #+#    #+#              #
-#    Updated: 2022/04/26 20:38:12 by pguranda         ###   ########.fr        #
+#    Updated: 2022/05/05 13:08:37 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ		=	$(SRCS:%.c=%.o)
 
 BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
-BONUS_OBJS = $(BONUS:.c=.o)
+BONUS_OBJS = $(BONUS:%.c=%.o)
 
 HEADER	=	libft.h
 
@@ -43,7 +43,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ) $(HEADER)
-	ar rcs $(NAME) $(OBJ) 
+	ar rcs $(NAME) $(OBJ) $?
 
 bonus : $(BONUS_OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(BONUS_OBJS)

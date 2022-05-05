@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   putnbr_with_zeroes.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/05 11:07:00 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/04 16:54:37 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/05 14:55:11 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#define LONG_MIN -2147483648
-#define LONG_MAX 2147483647
+#include "../include/ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	putnbr_with_zeroes(int precision, int num)
 {
-	if (n > LONG_MAX || n < LONG_MIN)
-		return ;
-	if (n == -2147483648)
+	int	i;
+	int diff;
+	int num2;
+
+	i = 0;
+	diff = 0;
+	num2 = num;
+	while (num != 0)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		num = num/10;
+		i++;
 	}
-	if (n < 0)
+	while (i < precision)
 	{
-		n = n * -1;
-		ft_putchar_fd('-', fd);
+	
+		write (1, "0", 1);
+		i++;
 	}
-	if (n < 10)
-	{
-		ft_putchar_fd(n + '0', fd);
-		return ;
-	}
-	ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
-	return ;
+	ft_putnbr_fd(num2, 1);
 }
