@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 18:02:22 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:00:36 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	write_struct(lst_arg *arg, va_list ap)
 {
-		char	*str_arg;
 		int		integer;
 
-		str_arg = NULL;
 		integer = 0;
 		if (arg->width != 0 && arg->is_minus == 0)
 		{

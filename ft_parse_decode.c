@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/04 18:03:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:35:46 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ lst_arg	*parse_args(const char *s, size_t z)
 	arg_len = 0;
 	str_arg = NULL;
 	arg_len = find_len(s, z);
+	str_arg = malloc(arg_len + 1);
+	if (str_arg == NULL)
+		return (NULL);
 	str_arg = ft_substr(s, z, arg_len);	
 	arg = ft_decode_to_struct(str_arg, arg_len);
+	free(str_arg);
 	return (arg);
 }
 
@@ -36,6 +40,8 @@ lst_arg *ft_decode_to_struct(char *s, size_t i)
 	counter = 0;
 	address_dot = NULL;
 	arg = malloc(sizeof(lst_arg));
+	if (arg == NULL)
+		return NULL;
 	arg->specifier = s[i - 1];
 	arg->length = i;
 	flag_or_zero = 0;
@@ -64,6 +70,7 @@ lst_arg *ft_decode_to_struct(char *s, size_t i)
 			arg->width = ft_atoi(s + counter - 1);
 		counter++; 
 	}
+	free(address_dot);
 return (arg);
 }
 

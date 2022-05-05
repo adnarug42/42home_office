@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/05 14:05:03 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:39:58 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int ft_printf(const char *s, ...)
 {
 	va_list			ap;
-	int			i;
+	int				i;
 	lst_arg			*arg;
 
 	arg = malloc(sizeof(lst_arg));
@@ -36,8 +36,9 @@ int ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end (ap);
-	/*printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
+/*printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
  precision: %d \n length: %zu \n specifier: %c \n \n", arg->is_hash, arg->is_minus, arg->is_zero, arg->is_plus, arg->is_space, arg->width, arg->precision, arg->length, arg->specifier);*/
+	free(arg);
 	return (i);
 }
 

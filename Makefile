@@ -6,7 +6,7 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 17:39:15 by pguranda          #+#    #+#              #
-#    Updated: 2022/05/05 14:59:06 by pguranda         ###   ########.fr        #
+#    Updated: 2022/05/05 15:38:34 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,12 +42,14 @@ all		: $(NAME)
 
 $(NAME)	: $(OBJS) $(HEADER)
 	@MAKE -C ./libft
+	cp ./libft/libft.a $(NAME)
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRCS)
 	ar rcs $(NAME) $(OBJS)
 
 clean	:
 	$(MAKE) clean -C ./libft
 	@rm -rf $(OBJS)
+	rm -rf *.o
 
 fclean	: clean
 	$(MAKE) fclean -C ./libft
