@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/05 16:39:58 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/06 13:54:47 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_printf(const char *s, ...)
 	int				i;
 	lst_arg			*arg;
 
-	arg = malloc(sizeof(lst_arg));
+	arg = (lst_arg *)malloc(sizeof(lst_arg));
 	if (arg == NULL)
 		return 0;
 	i = 0;
@@ -27,7 +27,7 @@ int ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			arg = parse_args(s, i + 1);
+			parse_args(s, i + 1, arg);
 			write_struct(arg, ap);
 			i += arg->length;
 		}
