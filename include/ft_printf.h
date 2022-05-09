@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/06 14:52:03 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/09 12:33:05 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # define SPECIFIERS "cspdiuxX%%"
 # define FLAGS "#+- 0"
-# define SPECIFIERS_FLAGS "cspdiuxX%%#+- 0"
+# define SPECIFIERS_FLAGS "cspdiuxX%%#+- 0123456789"
 
 typedef struct lst_arg
 {
@@ -31,7 +31,7 @@ typedef struct lst_arg
 	char			specifier;
 }	lst_arg;
 
-void 		ft_decode_to_struct(char **s, size_t i, lst_arg* out);
+void 		ft_decode_to_struct(char *str_arg, size_t i, lst_arg* out);
 void		parse_args(const char *s, size_t z, lst_arg* out);
 void		write_struct(lst_arg *first_arg, va_list ap);
 size_t		find_len(const char *s, size_t arg_start);

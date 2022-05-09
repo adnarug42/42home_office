@@ -1,28 +1,59 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
-void ft_print_s (char **s);
+void ft_print_s (char *s)
+{
+	size_t i = 0;
+	while (s[i] != '\0')
+	{
+		s[i] = 'M';
+		i++;
+	}
+	printf ("\nIn the function: %s", s);
+	free(s);
+	//s = NULL;
+}
+
 int main ()
 {
 	char *s;
 
-	s = (char *)malloc(6*sizeof(char));
-	s = "privet";
-	printf ("%s", s);
+	s = malloc(sizeof(char)*6);
+	strcpy(s, "hello");
+	printf("Original: %s", s);
 	ft_print_s(&s);
+	printf("\nAfter free: %s", s);
 	return (0);
 }
 
-void ft_print_s (char **s)
-{
-	int i = 0;
+/*#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
-	while (*s[i] != '\0')
+void ft_print_s (char *s)
+{
+	size_t i = 0;
+	while (s[i] != '\0')
 	{
-		*s[i] = 'M';
+		s[i] = 'M';
 		i++;
 	}
-	//printf ("%s", &s);
-	//free(s);
+	printf ("\nIn the function: %s", s);
+	free(s);
+	//*s = NULL;
 }
+
+int main ()
+{
+	char *s;
+
+	s = malloc(sizeof(char) * 6);
+	strcpy(s, "hello");
+	printf("Original: %s", s);
+	ft_print_s(s);
+	printf("\n After free: %s", s);
+	return (0);
+}*/
