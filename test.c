@@ -3,25 +3,24 @@
 #include <stdio.h>
 #include <string.h>
 
-void ft_print_s (char *s)
+void ft_print_s (char **s)
 {
 	size_t i = 0;
-	while (s[i] != '\0')
+	while (*s[i] != '\0')
 	{
-		s[i] = 'M';
+		*s[i] = 'M';
 		i++;
 	}
-	printf ("\nIn the function: %s", s);
-	free(s);
+	printf ("\nIn the function: %c", **s);
+	//free(s);
 	//s = NULL;
 }
 
 int main ()
 {
 	char *s;
-
 	s = malloc(sizeof(char)*6);
-	strcpy(s, "hello");
+	strcpy(s, "hello\0");
 	printf("Original: %s", s);
 	ft_print_s(&s);
 	printf("\nAfter free: %s", s);
@@ -43,7 +42,7 @@ void ft_print_s (char *s)
 	}
 	printf ("\nIn the function: %s", s);
 	free(s);
-	//*s = NULL;
+	//s = NULL;
 }
 
 int main ()
