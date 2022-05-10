@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 12:51:14 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:43:43 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int ft_printf(const char *s, ...)
 	va_list			ap;
 	int				i;
 	lst_arg			*arg;
+	int				*str_len;
 
+	str_len = malloc(sizeof(int));
+	*str_len = 0;
 	arg = malloc(sizeof(lst_arg));
 	if (arg == NULL)
 		return 0;
@@ -28,17 +31,21 @@ int ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			parse_args(s, i + 1, arg);
-			write_struct(arg, ap);
+			write_struct(arg, ap, str_len);
 			i += arg->length;
 		}
 		else
+		{
 			write(1, &s[i], 1);
+			*str_len += 1;
+		}
 		i++;
 	}
 	va_end (ap);
 // printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
 //  precision: %d \n length: %zu \n specifier: %c \n \n", arg->is_hash, arg->is_minus, arg->is_zero, arg->is_plus, arg->is_space, arg->width, arg->precision, arg->length, arg->specifier);
-	free(arg);
+	printf ("DLINA: %d \n ", *str_len);
+	free(arg);;
 	arg = NULL;
-	return (i);
+	return (*str_len);
 }

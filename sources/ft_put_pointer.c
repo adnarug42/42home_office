@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   space_sign.c                                       :+:      :+:    :+:   */
+/*   ft_put_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 17:12:24 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/05 14:55:16 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/04 16:52:45 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/10 17:28:33 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void space_sign(int i)
+int	ft_put_pointer(void *pointer)
 {
-	if (i >= 0)
-		write (1, " ", 1);
-	if (i < 0)
-		write (1, "-", 1);
+	int counter;
+	unsigned int	address;
+
+	counter = 0;
+	address = (unsigned int)pointer;
+	write(1, "0x10", 4);
+	counter = ft_hex_low(address);
+	counter += 4; 
+	return (counter);
 }

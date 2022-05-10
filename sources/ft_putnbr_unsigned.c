@@ -6,20 +6,22 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/05 14:54:59 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:05:01 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_putnbr_unsigned(unsigned int n, int fd)
+int	ft_putnbr_unsigned(unsigned int n, int fd)
 {
+	static int	counter;
 	if (n < 10)
 	{
 		ft_putchar_fd(n + '0', fd);
-		return ;
+		return 1;
 	}
-	ft_putnbr_fd(n / 10, fd);
+	counter++;
+	ft_putnbr_unsigned(n / 10, fd);
 	ft_putchar_fd((n % 10) + '0', fd);
-	return ;
+	return (counter);
 }

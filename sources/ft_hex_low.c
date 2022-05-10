@@ -6,18 +6,20 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/06 13:17:06 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/10 16:57:40 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_hex_low(unsigned int num)
+int	ft_hex_low(unsigned int num)
 {
+	static int	counter;
 	if (num >= 16)
 	{
 		ft_hex_low(num / 16);
 		ft_hex_low(num % 16);
+		counter++;
 	}
 	else
 	{
@@ -26,4 +28,5 @@ void	ft_hex_low(unsigned int num)
 		else
 			ft_putchar_fd((num - 10 + 'a'), 1);
 	}
+	return (counter + 1);
 }

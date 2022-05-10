@@ -6,22 +6,24 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:29:00 by pguranda          #+#    #+#             */
-/*   Updated: 2022/04/21 17:17:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/10 13:42:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	size_t				i;
 
 	i = 0;
 	if (s == NULL)
-		return ;
+		return (0);
 	while (s[i] != '\0')
 	{
 		write(fd, &s[i], 1);
 		i++;
 	}
+	i--;
+	return (i);
 }
