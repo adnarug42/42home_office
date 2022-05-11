@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:29:00 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 13:42:45 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:32:30 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int	ft_putstr_fd(char *s, int fd)
 
 	i = 0;
 	if (s == NULL)
-		return (0);
+	{
+		write (1,"(null)", 6);
+		return (6);
+	}
 	while (s[i] != '\0')
 	{
 		write(fd, &s[i], 1);
 		i++;
 	}
-	i--;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 17:43:43 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/11 11:50:26 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int ft_printf(const char *s, ...)
 			parse_args(s, i + 1, arg);
 			write_struct(arg, ap, str_len);
 			i += arg->length;
+			//*str_len += i - arg->length;
 		}
 		else
 		{
@@ -44,8 +45,11 @@ int ft_printf(const char *s, ...)
 	va_end (ap);
 // printf(" \n \n hash: %i \n minus: %i \n zero: %i \n plus: %i \n space: %i \n width: %zu \n\
 //  precision: %d \n length: %zu \n specifier: %c \n \n", arg->is_hash, arg->is_minus, arg->is_zero, arg->is_plus, arg->is_space, arg->width, arg->precision, arg->length, arg->specifier);
-	printf ("DLINA: %d \n ", *str_len);
-	free(arg);;
+	
+	//printf ("str_len: %d i: %d\n ", *str_len, i);
+	free(arg);
 	arg = NULL;
-	return (*str_len);
+	i = *str_len;
+	free(str_len);
+	return (i);
 }

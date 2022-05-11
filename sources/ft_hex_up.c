@@ -6,14 +6,14 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 17:16:38 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:50:34 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../include/ft_printf.h"
 
-int	ft_hex_up(unsigned int num)
+int	ft_hex_up(unsigned long num)
 {
 	static int counter;
 	if (num >= 16)

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 17:30:22 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:48:30 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		{
 			if (arg->is_hash == 1)
 				write (1,"0X", 2);
-			*counter += ft_hex_up(va_arg(ap, int));
+			*counter += ft_hex_up(va_arg(ap, unsigned long));
 		}
 		if (arg->specifier == 'x')
 		{
 			if (arg->is_hash == 1)
 				write (1,"0x", 2);
-			*counter += ft_hex_low(va_arg(ap, int));
+			*counter += ft_hex_low(va_arg(ap, unsigned long));
 		}
 		if (arg->specifier == 'u')
 			*counter += ft_putnbr_unsigned(va_arg(ap, unsigned int), 1);
