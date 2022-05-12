@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/11 17:51:01 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:25:37 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void		parse_args(const char *s, size_t z, lst_arg* out);
 void		write_struct(lst_arg *first_arg, va_list ap, int *counter);
 size_t		find_len(const char *s, size_t arg_start);
 int 		ft_hex_up(unsigned long i);
-int 		ft_hex_low(size_t i);
-int			ft_putnbr_unsigned(unsigned int n, int fd);
+int			ft_hex_low(unsigned long num);
+void		ft_hex_low_pointer(unsigned long num, int *hex_counter);
+void			ft_putnbr_unsigned(unsigned int n, int fd, int *unsigned_counter);
 int			ft_width(size_t width);
 int			ft_zero(size_t width);
 int			ft_precision(char *str, int i);

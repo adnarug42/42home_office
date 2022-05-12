@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   ft_hex_low_pointer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/12 19:29:11 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/12 17:28:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_putnbr_unsigned(unsigned int n, int fd, int *unsigned_counter)
+
+void	ft_hex_low_pointer(unsigned long num, int *hex_counter)
 {
-	
-	if (n < 10)
+	if (num >= 16)
 	{
-		ft_putchar_fd(n + '0', fd);
-		*unsigned_counter += 1;
-		return ;
+		ft_hex_low_pointer(num / 16, hex_counter);
+		ft_hex_low_pointer(num % 16, hex_counter);
 	}
-	ft_putnbr_unsigned(n / 10, fd, unsigned_counter);
-	ft_putchar_fd((n % 10) + '0', fd);
-	*unsigned_counter += 1;
+	else
+	{
+		if (num <= 9)
+		{
+			ft_putchar_fd((num + '0'), 1);
+			*hex_counter += 1;
+		}
+		else
+		{
+			ft_putchar_fd((num - 10 + 'a'), 1);
+			*hex_counter += 1;
+		}
+	}
 	return ;
 }

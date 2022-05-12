@@ -1,6 +1,7 @@
 #include "include/ft_printf.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 int main()
 {
 	int *s;
@@ -16,8 +17,8 @@ int main()
 // 	printf("\n**********PRINTF*********\n\
 // TEST1:%c  TEST2: %c TEST3: %c TEST4: %c TEST 5: %c %c %c TEST6: %c %c %c TEST7: %c %c %c TEST8: %c %c %c TEST9: %c %c %c",\
 // '0', '0', '0' -256, '0' +256, '0', 0, '1', ' ', ' ', ' ', '1', '2', '3', '2', '1', 0, 0, '1', '2');
- my_len = ft_printf("%p %p\n", LONG_MIN, LONG_MAX);
- print_len = printf("\n%p %p", LONG_MIN, LONG_MAX);
+ my_len = ft_printf("\n%x",LONG_MAX);
+ print_len = printf("\n%x",LONG_MAX);
  printf("\nmy len: %d print len: %d", my_len, print_len);
     return (0);
 }

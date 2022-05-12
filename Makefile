@@ -6,7 +6,7 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 17:39:15 by pguranda          #+#    #+#              #
-#    Updated: 2022/05/10 17:26:26 by pguranda         ###   ########.fr        #
+#    Updated: 2022/05/12 17:26:20 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS		=	sources/digit.c\
 				sources/ft_put_pointer.c\
 				sources/ft_putnbr_with_zeroes.c\
 				sources/ft_sign.c\
-				sources/ft_space_sign.c
+				sources/ft_space_sign.c\
+				sources/ft_hex_low_pointer.c
 
 OBJS		=	$(SRCS:%.c=%.o)
 

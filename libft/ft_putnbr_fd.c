@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 16:49:10 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/12 18:47:34 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ int	ft_putnbr_fd(int n, int fd, int counter)
 		return 0;
 	if (n == -2147483648)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return 11;
+		ft_putstr_fd("2147483648", fd);
+		return 10;
 	}
 	if (n < 0)
 	{
 		n = n * -1;
-		ft_putchar_fd('-', fd);
 	}
 	if (n < 10)
 	{
