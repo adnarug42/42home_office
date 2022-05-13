@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/12 19:30:44 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/13 16:10:03 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 {
 		int		integer;
 		int		*unsigned_counter;
+		int		*hex_counter_low;
+		int		*hex_counter_up;
 	
 		integer = 0;
 		unsigned_counter = malloc(sizeof(size_t));
 		*unsigned_counter = 0;
+		hex_counter_low = malloc(sizeof(size_t));
+		*hex_counter_low = 0;
+		hex_counter_up = malloc(sizeof(size_t));
 		if (arg->width != 0 && arg->is_minus == 0)
 		{
 			if (arg->is_zero == 0)
@@ -56,13 +61,15 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		{
 			if (arg->is_hash == 1)
 				write (1,"0X", 2);
-			*counter += ft_hex_up(va_arg(ap, unsigned long));
+			ft_hex_up(va_arg(ap, long), hex_counter_up);
+			*counter += *hex_counter_up;
 		}
 		if (arg->specifier == 'x')
 		{
 			if (arg->is_hash == 1)
 				write (1,"0x", 2);
-			*counter += ft_hex_low(va_arg(ap, unsigned long));
+			ft_hex_low(va_arg(ap, long), hex_counter_low);
+			*counter += *hex_counter_low;
 		}
 		if (arg->specifier == 'u')
 		{
@@ -73,4 +80,8 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 			*counter += ft_width(arg->width);
 		free(unsigned_counter);
 		unsigned_counter = NULL;
+		free(hex_counter_low);
+		hex_counter_low = NULL;
+		free(hex_counter_up);
+		hex_counter_up = NULL;
 }
