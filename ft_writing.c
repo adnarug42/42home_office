@@ -6,11 +6,12 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 10:58:51 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 17:03:40 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
+#include <stdio.h>
 
 void	write_struct(lst_arg *arg, va_list ap, int *counter)
 {
@@ -25,13 +26,13 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		hex_counter_low = malloc(sizeof(size_t));
 		*hex_counter_low = 0;
 		hex_counter_up = malloc(sizeof(size_t));
-		if (arg->width != 0 && arg->is_minus == 0)
+		/*if (arg->width != 0 && arg->is_minus == 0)
 		{
 			if (arg->is_zero == 0)
 				*counter += ft_width(arg->width);
 			else
 				*counter += ft_zero(arg->width);
-		}
+		}*/
 		if (arg->specifier == 'i' || arg->specifier == 'd')
 		{	
 			integer = va_arg(ap, int);
@@ -45,13 +46,13 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 				*counter += ft_putnbr_fd(integer, 1, 0);
 		}
 		if (arg->specifier == 'c')
-			*counter += ft_putchar_fd(va_arg(ap, int), 1);
+				*counter += ft_putchar_printf(va_arg(ap, int), arg, 1);
 		if (arg->specifier == 's')
 		{
 			if (arg->precision != 0)
 				*counter += ft_precision(va_arg(ap, char*), arg->precision);
 			else
-				*counter += ft_putstr_fd(va_arg(ap, char*), 1);
+				*counter += ft_putstr_printf(va_arg(ap, char*), arg, 1);
 		}
 		if (arg->specifier == '%')
 		{
@@ -79,8 +80,8 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 			ft_putnbr_unsigned(va_arg(ap, unsigned int), 1, unsigned_counter);
 			*counter += *unsigned_counter;
 		}
-		if (arg->width != 0 && arg->is_minus == 1)
-			*counter += ft_width(arg->width);
+		/*if (arg->width != 0 && arg->is_minus == 1)
+			*counter += ft_width(arg->width);*/
 		free(unsigned_counter);
 		unsigned_counter = NULL;
 		free(hex_counter_low);

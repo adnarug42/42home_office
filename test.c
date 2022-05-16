@@ -1,14 +1,15 @@
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft/libft.h"
 #include <stdio.h>
-#include <string.h>
 
 
 int main ()
 {
-	printf ("%lf\n", -53);
-	printf ("%u \n", -53);
-	printf ("%d", -53);
+	int i = 0;
+	char *s;
+
+	s = "priv123priv";
+	i = ft_atoi(s);
+	printf ("%d", i);
 	return (0);
 }
 
