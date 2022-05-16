@@ -6,15 +6,15 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 10:12:30 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 10:56:44 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_hex_up(long num, int *hex_counter_up)
+void	ft_hex_up(unsigned int num, int *hex_counter_up)
 {
-	if (num == 9223372036854775807LL || (unsigned)num == ULONG_MAX)
+	if ((long)num == 9223372036854775807LL || (unsigned)num == ULONG_MAX)
 	{
 		write(1, "FFFFFFFF", 8);
 		*hex_counter_up += 8;

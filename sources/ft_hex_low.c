@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 10:11:00 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 10:58:02 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 // #include <stdlib.h>
 // int				ft_putchar_fd(char c, int fd);
 
-void	ft_hex_low(long num, int *hex_counter_low)
+void	ft_hex_low(unsigned int num, int *hex_counter_low)
 {
-	if (num == 9223372036854775807LL || (unsigned)num == ULONG_MAX)
+	if ((long)num == 9223372036854775807LL || (unsigned)num == ULONG_MAX)
 	{
 		write(1, "ffffffff", 8);
 		*hex_counter_low+= 8;

@@ -3,23 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void ft_print_s (int *d)
-{
-
-	*d = 1;
-	printf ("\nIn the function: %d", *d);
-	// free(d);
-	//s = NULL;
-}
 
 int main ()
 {
-	int *d;
-	*d = 0;
-	printf("Original: %d", *d);
-	ft_print_s(d);
-	printf("\nAfter free: %d", *d);
-	system("leaks a.out");
+	printf ("%lf\n", -53);
+	printf ("%u \n", -53);
+	printf ("%d", -53);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 10:03:42 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 10:56:34 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void 		ft_decode_to_struct(char *str_arg, size_t i, lst_arg* out);
 void		parse_args(const char *s, size_t z, lst_arg* out);
 void		write_struct(lst_arg *first_arg, va_list ap, int *counter);
 size_t		find_len(const char *s, size_t arg_start);
-void 		ft_hex_up(long i, int *hex_counter_up);
-void		ft_hex_low(long num, int *hex_counter_low);
+void 		ft_hex_up(unsigned i, int *hex_counter_up);
+void		ft_hex_low(unsigned int num, int *hex_counter_low);
 void		ft_hex_low_pointer(unsigned long num, int *hex_counter);
 void		ft_putnbr_unsigned(unsigned int n, int fd, int *unsigned_counter);
 int			ft_width(size_t width);
