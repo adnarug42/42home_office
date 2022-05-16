@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/13 16:10:03 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 10:09:04 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 				*counter += ft_putstr_fd(va_arg(ap, char*), 1);
 		}
 		if (arg->specifier == '%')
+		{
+			*counter += 1;	
 			write(1, "%%", 1);
+		}
 		if (arg->specifier == 'p')
 			*counter += ft_put_pointer(va_arg(ap, void*));
 		if (arg->specifier == 'X')

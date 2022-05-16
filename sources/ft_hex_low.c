@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/13 17:06:27 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 10:11:00 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_hex_low(long num, int *hex_counter_low)
 		}
 		else
 		{
-			ft_putchar_fd((num - 10 + 'A'), 1);
+			ft_putchar_fd((num - 10 + 'a'), 1);
 			*hex_counter_low += 1;
 		}
 	}

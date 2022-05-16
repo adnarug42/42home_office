@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/13 17:05:27 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/16 10:12:30 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_hex_up(long num, int *hex_counter_up)
 {
 	if (num == 9223372036854775807LL || (unsigned)num == ULONG_MAX)
 	{
-		write(1, "ffffffff", 8);
+		write(1, "FFFFFFFF", 8);
 		*hex_counter_up += 8;
 		return ;
 	}
