@@ -1,16 +1,24 @@
-#include "libft/libft.h"
+//#include "libft/libft.h"
 #include <stdio.h>
+#include <unistd.h>
 
 
+void ft_transfer(int d)
+{
+	printf ("%d ", d);
+	return ;
+}
+
+int ft_retransfer(void *f(int), char c)
+{
+	write (1, &c, 1);
+	*f(5);
+	return (10);
+}
 int main ()
 {
-	int i = 0;
-	char *s;
-
-	s = "priv123priv";
-	i = ft_atoi(s);
-	printf ("%d", i);
-	return (0);
+	ft_retransfer(ft_transfer, 'c');
+	return 0;
 }
 
 /*#include <stdlib.h>

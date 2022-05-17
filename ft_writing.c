@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/17 11:32:06 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/17 16:31:41 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 			if (arg->precision != 0)
 				*counter += ft_putnbr_with_zeroes(arg->precision, integer);
 			else
-				*counter += ft_putnbr_fd(integer, 1, 0);
+				ft_minus_width(ft_putnbr_printf, arg, integer, counter);
 		}
 		if (arg->specifier == 'c')
 				*counter += ft_putchar_printf(va_arg(ap, int), arg, 1);
@@ -60,7 +60,7 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 			write(1, "%%", 1);
 		}
 		if (arg->specifier == 'p')
-			*counter += ft_put_pointer(va_arg(ap, void*));
+			*counter += ft_put_pointer(va_arg(ap, void*), arg);
 		if (arg->specifier == 'X')
 		{
 			if (arg->is_hash == 1)

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 16:22:09 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:03:09 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		ft_putnbr_unsigned(unsigned int n, int fd, int *unsigned_counter);
 int			ft_width(int width);
 int			ft_zero(size_t width);
 int			ft_precision(char *str, int i);
-int			ft_put_pointer(void *pointer);
+int			ft_put_pointer(void *pointer, lst_arg *out);
 int			ft_putnbr_with_zeroes(int precision, int num);
 int			ft_sign(int i);
 int			ft_space_sign(int i);
@@ -54,6 +54,8 @@ int			digit(int c);
 int			ft_putstr_printf(char *s, lst_arg *arg, int fd);
 int			ft_putchar_printf(char s, lst_arg *arg, int fd);
 size_t		find_len(const char *s, size_t arg_start);
+void		ft_minus_width(int (*f)(int, int*), lst_arg *arg, int integer, int *counter);
+int			ft_putnbr_printf(int n, int *counter);
 int 		ft_printf(const char *s, ...);
 
 //printf ("%c %i %i %i %c", first_arg->flags, first_arg->width, first_arg->precision, first_arg->length, first_arg->specifier);

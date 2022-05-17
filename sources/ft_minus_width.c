@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pointer.c                                   :+:      :+:    :+:   */
+/*   ft_minus_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 16:52:45 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/17 11:56:07 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/17 12:09:09 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/17 17:05:08 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_put_pointer(void *pointer, lst_arg *out)
+void ft_minus_width(int (*f)(int, int*), lst_arg *arg, int integer, int *counter)
 {
-	int counter;
-	unsigned long	address;
-	int	*hex_counter;
+	int	len;
 	int	width;
 
-	hex_counter = malloc(sizeof(int));
-	*hex_counter = 0;
-	counter = 0;
-	address = (unsigned long)pointer;
-	width = out->width;
-	write(1, "0x", 2);
-	ft_hex_low_pointer(address, hex_counter);
-	counter = 2 + *hex_counter; 
-	if (out->is_minus == 1 && width > counter)
+	len = 0;
+	width = arg->width;
+	len = f(integer, counter);
+	if (arg->is_minus == 1 && width > len)
 	{
-		width = width - counter;
+		width = width - len;
 		while (width > 0)
 		{
 			write (1, " ", 1);
 			width--;
-			counter++;
+			*counter += 1;
 		}
+		*counter += 1;
 	}
-	free(hex_counter);
-	hex_counter = NULL;
-	return (counter);
 }
