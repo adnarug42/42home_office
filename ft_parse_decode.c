@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 14:22:21 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/17 11:35:15 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void ft_decode_to_struct(char *str_arg, size_t i, lst_arg *out)
 			out->precision = ft_atoi(str_arg + counter + 1);
 			address_dot = &str_arg[counter];
 		}
-		if ((digit(str_arg[counter]) == 1) && ((&str_arg[counter] < address_dot) || (address_dot == NULL)) && (out->width == 0))
+		if ((digit(str_arg[counter]) == 1) && (out->width == 0) && ((&str_arg[counter] < address_dot) || (address_dot == NULL)))
 			out->width = ft_atoi(str_arg + counter);
 		counter++; 
 	}

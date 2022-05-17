@@ -6,11 +6,12 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 17:01:36 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/17 11:36:32 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
+
 
 int ft_printf(const char *s, ...)
 {
@@ -34,6 +35,7 @@ int ft_printf(const char *s, ...)
 			write_struct(arg, ap, str_len);
 			i += arg->length;
 			//*str_len += i - arg->length;
+			arg->width = 0;
 		}
 		else
 		{
