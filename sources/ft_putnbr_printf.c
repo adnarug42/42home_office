@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/17 17:04:57 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/18 13:22:06 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 #define LONG_MIN -__LONG_MAX__ -1L
 #define LONG_MAX 2147483647
 
-int	ft_putnbr_printf(int n, int *counter)
+int	ft_putnbr_printf(int n, int *sub_counter)
 {	
+
 	if ((long)n > LONG_MAX || (long)n < LONG_MIN)
 		return 0;
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("2147483648", 1);
-		return 10;
+		*sub_counter += 10;
+		return (10);
 	}
 	if (n < 0)
 	{
@@ -30,11 +32,11 @@ int	ft_putnbr_printf(int n, int *counter)
 	if (n < 10)
 	{
 		ft_putchar_fd(n + '0', 1);
-		*counter += 1;
+		*sub_counter += 1;
 		return 1;
 	}
-	*counter += 1;
-	ft_putnbr_printf(n / 10, counter);
+	*sub_counter += 1;
+	ft_putnbr_printf(n / 10, sub_counter);
 	ft_putchar_fd((n % 10) + '0', 1);
-	return (*counter);
+	return (*sub_counter);
 }

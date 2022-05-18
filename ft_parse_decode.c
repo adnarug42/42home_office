@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/17 11:35:15 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/18 11:11:49 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void ft_decode_to_struct(char *str_arg, size_t i, lst_arg *out)
 	char	*address_dot;
 
 	counter = 0;
-
 	address_dot = NULL;
 	out->specifier = str_arg[i - 1];
 	out->length = i;
