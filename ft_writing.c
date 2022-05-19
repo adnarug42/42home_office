@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/18 13:53:42 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:07:55 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,15 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		{
 			if (arg->is_hash == 1)
 				write (1,"0X", 2);
-			ft_hex_up(va_arg(ap, long), hex_counter_up);
-			*counter += *hex_counter_up;
+			ft_minus_width(ft_hex_up, arg, va_arg(ap, int long), sub_counter);
+			*counter += *sub_counter;
 		}
 		if (arg->specifier == 'x')
 		{
 			if (arg->is_hash == 1)
 				write (1,"0x", 2);
-			ft_hex_low(va_arg(ap, long), hex_counter_low);
-			*counter += *hex_counter_low;
+			ft_minus_width(ft_hex_low, arg, va_arg(ap, int long), sub_counter);
+			*counter += *sub_counter;
 		}
 		if (arg->specifier == 'u')
 		{
