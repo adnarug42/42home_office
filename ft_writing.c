@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 15:07:55 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:13:59 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,9 @@
 void	write_struct(lst_arg *arg, va_list ap, int *counter)
 {
 		int		integer;
-		int		*unsigned_counter;
-		int		*hex_counter_low;
-		int		*hex_counter_up;
 		int		*sub_counter;
 	
 		integer = 0;
-		unsigned_counter = malloc(sizeof(size_t));
-		*unsigned_counter = 0;
-		hex_counter_low = malloc(sizeof(size_t));
-		*hex_counter_low = 0;
-		hex_counter_up = malloc(sizeof(size_t));
 		sub_counter = malloc (sizeof(size_t));
 		*sub_counter = 0;
 
@@ -89,12 +81,7 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		}
 		// if (arg->width != 0 && arg->is_minus == 1)
 		// 	*counter += ft_width(arg->width);
-		free(unsigned_counter);
-		unsigned_counter = NULL;
-		free(hex_counter_low);
-		hex_counter_low = NULL;
-		free(hex_counter_up);
-		hex_counter_up = NULL;
+
 		free(sub_counter);
 		sub_counter= NULL;
 }
