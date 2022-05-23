@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/10 12:13:58 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/20 11:50:59 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void ft_decode_to_struct(char *str_arg, size_t i, lst_arg *out)
 	char	*address_dot;
 
 	counter = 0;
-
 	address_dot = NULL;
 	out->specifier = str_arg[i - 1];
 	out->length = i;
@@ -59,12 +58,13 @@ void ft_decode_to_struct(char *str_arg, size_t i, lst_arg *out)
 		if (str_arg[counter] == '.')
 		{
 			if (str_arg[counter + 1] == out->specifier)
-				out->precision = 0;
-			out->precision = ft_atoi(str_arg + counter + 1);
+				out->precision = -1;
+			else
+				out->precision = ft_atoi(str_arg + counter + 1);
 			address_dot = &str_arg[counter];
 		}
-		if ((digit(str_arg[counter]) == 1 && &str_arg[counter] < address_dot) || address_dot == NULL)
-			out->width = ft_atoi(str_arg + counter - 1);
+		if ((digit(str_arg[counter]) == 1) && (out->width == 0) && ((&str_arg[counter] < address_dot) || (address_dot == NULL)))
+			out->width = ft_atoi(str_arg + counter);
 		counter++; 
 	}
 	if (address_dot != NULL)

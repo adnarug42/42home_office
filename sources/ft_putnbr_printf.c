@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 12:48:56 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/19 12:49:11 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-// #include <limits.h>
-// #include <stdio.h>
-// #include <string.h>
+#define LONG_MIN -__LONG_MAX__ -1L
+#define LONG_MAX 2147483647
 
+int	ft_putnbr_printf(int n, int *sub_counter, int *sign_flag)
+{	
 
-int	ft_putnbr_unsigned(int n, int *sub_counter, int *sign_flag)
-{
-	sign_flag = 0;
 	if ((long)n > LONG_MAX || (long)n < LONG_MIN)
 		return 0;
-	// if ((long)n == -2147483648)
-	// {
-	// 	ft_putstr_fd("2147483648", 1);
-	// 	*sub_counter += 10;
-	// 	return (10);
-	// }
-	if ((unsigned)n < 10)
+	if (n == -2147483648)
 	{
-		ft_putchar_fd((unsigned)n + '0', 1);
+		ft_putstr_fd("2147483648", 1);
+		*sub_counter += 10;
+		return (10);
+	}
+	if (n < 0)
+	{
+		n = n * -1;
+		*sign_flag = 1;
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(n + '0', 1);
 		*sub_counter += 1;
 		return 1;
 	}
+	ft_putnbr_printf(n / 10, sub_counter, sign_flag);
 	*sub_counter += 1;
-	ft_putnbr_unsigned((unsigned)n / 10, sub_counter, sign_flag);
-	ft_putchar_fd(((unsigned)n % 10) + '0', 1);
+	ft_putchar_fd((n % 10) + '0', 1);
 	return (*sub_counter);
 }
-

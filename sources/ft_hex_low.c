@@ -6,64 +6,39 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 10:58:02 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:52:41 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-// #include <limits.h>
-// #include <stdio.h>
-// #include <unistd.h>
-// #include <stdlib.h>
-// int				ft_putchar_fd(char c, int fd);
 
-void	ft_hex_low(unsigned int num, int *hex_counter_low)
+int	ft_hex_low(int num, int *sub_counter, int *sign_flag)
 {
+	sign_flag = NULL;
 	if ((long)num == 9223372036854775807LL || (unsigned)num == ULONG_MAX)
 	{
 		write(1, "ffffffff", 8);
-		*hex_counter_low+= 8;
-		return ;
+		*sub_counter += 8;
+		return (8);
 	}
-	if (num >= 16)
+	if ((unsigned)num >= 16)
 	{
-		ft_hex_low(num / 16, hex_counter_low);
-		ft_hex_low(num % 16, hex_counter_low);
+		ft_hex_low((unsigned)num / 16, sub_counter, NULL);
+		ft_hex_low((unsigned)num % 16, sub_counter, NULL);
 	}
 	else
 	{
-		if (num <= 9)
+		if ((unsigned)num <= 9)
 		{
-			ft_putchar_fd((num + '0'), 1);
-			*hex_counter_low += 1;
+			ft_putchar_fd(((unsigned)num + '0'), 1);
+			*sub_counter += 1;
 		}
 		else
 		{
-			ft_putchar_fd((num - 10 + 'a'), 1);
-			*hex_counter_low += 1;
+			ft_putchar_fd(((unsigned)num - 10 + 'a'), 1);
+			*sub_counter += 1;
 		}
 	}
-	return ;
+
+	return (*sub_counter);
 }
-
-// int main ()
-// {
-// 	int i = 0;
-// 	int z = 0;
-// 	int *counter;
-
-// 	*counter = malloc (sizeof(int));
-// 	*counter = 0;
-
-// 	ft_hex_low(INT_MAX, counter);
-// 	ft_hex_low(INT_MIN, counter);
-// 	ft_hex_low(LONG_MAX, counter);
-// 	 ft_hex_low(LONG_MIN, counter);
-//  	ft_hex_low(ULONG_MAX, counter);
-// 	ft_hex_low(0, counter);
-	
-// 	z = printf(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-// 	printf ("my printf:%d printf: %d", *counter, z);
-// 	free(counter);
-// 	return (0);
-// }

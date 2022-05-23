@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_with_zeroes.c                            :+:      :+:    :+:   */
+/*   ft_putchar_printf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 16:54:37 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/23 16:11:02 by pguranda         ###   ########.fr       */
+/*   Created: 2022/04/12 11:19:59 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/17 11:28:26 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 #include <stdio.h>
 
-int	ft_precision_unsigned(int precision, int num)
+int	ft_putchar_printf(char c, lst_arg *arg, int fd)
 {
-	int	i;
-	int diff;
-	int num2;
-	int counter;
+	int		width;
+	int		z;
 
-	i = 0;
-	diff = 0;
-	num2 = num;
-	counter = 0;
-	if (num < 0)
-		num *= -1;
-	if (num == 0)
-		i = 1;
-	while (num != 0)
+	z = 0;
+	width = arg->width;
+//	printf ("width %d minus %d", width, arg->is_minus);
+	if (arg->is_minus == 0 && width != 0)
 	{
-		num = num/10;
-		i++;
+		width = width - 1;
+		while (width > 0)
+		{
+			write (1, " ", 1);
+			width--;
+			z++;
+		}
 	}
-	//printf (" i is: %d and precision is: %d ", i, precision);
-	precision = precision - i;
-	while (precision > 0)
+	write (1, &c, fd);
+	if (arg->is_minus == 1 && width != 0)
 	{
-		write (1, "0", 1);
-		precision--;
-		counter++;
+		width = width - 1;
+		while (width > 0)
+		{
+			write (1, " ", 1);
+			width--;
+			z++;
+		}
 	}
-	counter += ft_putnbr_fd(num2, 1, 0);
-	return (counter);
+	return (z + 1);
 }
