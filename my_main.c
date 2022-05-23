@@ -17,8 +17,8 @@ int main()
 // 	printf("\n**********PRINTF*********\n\
 // TEST1:%c  TEST2: %c TEST3: %c TEST4: %c TEST 5: %c %c %c TEST6: %c %c %c TEST7: %c %c %c TEST8: %c %c %c TEST9: %c %c %c",\
 // '0', '0', '0' -256, '0' +256, '0', 0, '1', ' ', ' ', ' ', '1', '2', '3', '2', '1', 0, 0, '1', '2');
- my_len = ft_printf(" %.2s %.1s ", "", "-");
- print_len = printf(" %.2s %.1s ", "", "-");
+ my_len = ft_printf(" %.2d ", -1);
+ print_len = printf(" %.2d ", -1);
  printf("\nmy len: %d print len: %d", my_len, print_len);
     return (0);
 }

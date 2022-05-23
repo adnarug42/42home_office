@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 15:13:59 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:01:52 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		if (arg->specifier == 's')
 		{
 			if (arg->precision != 0)
-				*counter += ft_precision(va_arg(ap, char*), arg->precision);
+				*counter += ft_precision_string(va_arg(ap, char*), arg->precision);
 			else
 				*counter += ft_putstr_printf(va_arg(ap, char*), arg, 1);
 		}
@@ -76,12 +76,14 @@ void	write_struct(lst_arg *arg, va_list ap, int *counter)
 		}
 		if (arg->specifier == 'u')
 		{
-			ft_minus_width(ft_putnbr_unsigned, arg, va_arg(ap, unsigned int), sub_counter);
+			if (arg->precision != 0)
+				*counter += ft_precision_unsigned(arg->precision, va_arg(ap, unsigned int));
+			else
+				ft_minus_width(ft_putnbr_unsigned, arg, va_arg(ap, unsigned int), sub_counter);
 			*counter += *sub_counter;
 		}
 		// if (arg->width != 0 && arg->is_minus == 1)
 		// 	*counter += ft_width(arg->width);
-
 		free(sub_counter);
 		sub_counter= NULL;
 }

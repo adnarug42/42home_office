@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:09:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 14:44:13 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:08:16 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void ft_minus_width(int (*f)(int, int *, int *), lst_arg *arg, int integer, int 
 			*sub_counter += 1;
 		} 
 	}
+	if (arg->precision )
 	len = f(integer, sub_counter, sign_flag);
 	// printf ("width %d len %d integer %d sub counter %d sign flag %d", width, len, integer, *sub_counter, *sign_flag);
 	if (*sign_flag == 1)

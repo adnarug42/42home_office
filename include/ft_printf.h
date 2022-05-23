@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 15:01:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:09:28 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		ft_hex_low_pointer(unsigned long num, int *hex_counter);
 int			ft_putnbr_unsigned(int n, int *sub_counter, int *sign_flag);
 int			ft_width(int width);
 int			ft_zero(size_t width);
-int			ft_precision(char *str, int i);
+int			ft_precision_string(char *str, int i);
 int			ft_put_pointer(void *pointer, lst_arg *out);
 int			ft_putnbr_with_zeroes(int precision, int num);
 int			ft_sign(int i);
