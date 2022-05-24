@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_low_counter.c                               :+:      :+:    :+:   */
+/*   ft_hex_counter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/24 12:02:51 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:37:33 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_hex_low_counter(int num, int *sub_counter)
+int	ft_hex_counter(int num, int *sub_counter)
 {
 	int	counter;
 
@@ -24,8 +24,8 @@ int	ft_hex_low_counter(int num, int *sub_counter)
 	}
 	if ((unsigned)num >= 16)
 	{
-		ft_hex_low_counter((unsigned)num / 16, sub_counter);
-		ft_hex_low_counter((unsigned)num % 16, sub_counter);
+		ft_hex_counter((unsigned)num / 16, sub_counter);
+		ft_hex_counter((unsigned)num % 16, sub_counter);
 	}
 	else
 			*sub_counter += 1;

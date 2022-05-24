@@ -6,7 +6,7 @@
 #    By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/04 17:39:15 by pguranda          #+#    #+#              #
-#    Updated: 2022/05/24 12:14:57 by pguranda         ###   ########.fr        #
+#    Updated: 2022/05/24 13:37:00 by pguranda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS		=	sources/digit.c\
 				sources/ft_putchar_printf.c\
 				sources/ft_putnbr_printf.c\
 				sources/ft_precision_unsigned.c\
-				sources/ft_hex_low_counter.c\
+				sources/ft_hex_counter.c\
 				sources/ft_precision_hex_low.c\
 				sources/ft_precision_hex_up.c\
 				sources/ft_minus_width.c

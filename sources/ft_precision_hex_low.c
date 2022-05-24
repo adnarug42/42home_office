@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 11:34:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/24 12:05:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:36:41 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_precision_hex_low(int precision, int num,  int *sub_counter)
 	counter = 0;
 	if (num2 == 0)
 		i = 1;
-	ft_hex_low_counter(num, sub_counter);
+	ft_hex_counter(num, sub_counter);
 	i = *sub_counter;
 	*sub_counter = 0;
 	// printf (" i is: %d and precision is: %d ", i, precision);
