@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/23 16:09:28 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:27:54 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ int			ft_putchar_printf(char s, lst_arg *arg, int fd);
 size_t		find_len(const char *s, size_t arg_start);
 void		ft_minus_width(int (*f)(int, int*, int*), lst_arg *arg, int integer, int *sub_counter);
 int			ft_putnbr_printf(int n, int *sub_counter, int *sign_flag);
-int 		ft_printf(const char *s, ...);
+int			ft_precision_unsigned(int precision, int num, int *sub_counter);
+int			ft_printf(const char *s, ...);
+int			ft_precision_hex_low(int precision, int num,  int *sub_counter);
 
 //printf ("%c %i %i %i %c", first_arg->flags, first_arg->width, first_arg->precision, first_arg->length, first_arg->specifier);
 //cc -Wextra -Wall libft.a ft_hex_up.c ft_hex_low.c ft_putnbr_unsigned.c putnbr_with_zeroes.c put_pointer.c ft_width.c ft_zero.c ft_precision.c sign.c space_sign.c ft_writing.c ft_decode_char.c ft_printf.c

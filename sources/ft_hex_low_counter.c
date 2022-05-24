@@ -1,48 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision_unsigned.c                            :+:      :+:    :+:   */
+/*   ft_hex_low_counter.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/24 11:32:15 by pguranda         ###   ########.fr       */
+/*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
+/*   Updated: 2022/05/24 12:02:51 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-// #include <limits.h>
-#include <stdio.h>
-// #include <string.h>
 
-
-int	ft_precision_unsigned(int precision, int num,  int *sub_counter)
+int	ft_hex_low_counter(int num, int *sub_counter)
 {
-	int	i;
+	int	counter;
 
-	unsigned int num2;
-	int counter;
-
-	i = 0;
-
-	num2 = (unsigned) num;
 	counter = 0;
-	if (num2 == 0)
-		i = 1;
-	while (num2 != 0)
+	if ((long)num == 9223372036854775807LL || (unsigned long)num == ULONG_MAX)
 	{
-		num2 = num2/10;
-		i++;
+		*sub_counter += 8;
+		return (8);
 	}
-	// printf (" i is: %d and precision is: %d ", i, precision);
-	precision = precision - i;
-	while (precision > 0)
+	if ((unsigned)num >= 16)
 	{
-		write (1, "0", 1);
-		precision--;
-		*sub_counter += 1;
+		ft_hex_low_counter((unsigned)num / 16, sub_counter);
+		ft_hex_low_counter((unsigned)num % 16, sub_counter);
 	}
-	ft_putnbr_unsigned(num, sub_counter, 0);
+	else
+			*sub_counter += 1;
 	return (*sub_counter);
 }
-
