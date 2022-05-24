@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/24 13:37:17 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:09:31 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct lst_arg
 	char			specifier;
 }	lst_arg;
 
-void 		ft_decode_to_struct(char *str_arg, size_t i, lst_arg* out);
+void 		ft_decode_to_struct(const char *str_arg, size_t i, lst_arg* out);
 void		parse_args(const char *s, size_t z, lst_arg* out);
 void		write_struct(lst_arg *first_arg, va_list ap, int *counter);
 size_t		find_len(const char *s, size_t arg_start);

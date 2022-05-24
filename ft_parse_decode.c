@@ -6,12 +6,14 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/20 11:50:59 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/24 17:32:38 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
 #include <stdio.h>
+static void ft_flags_parse(char *str_arg, size_t i, lst_arg *out);
+static void	ft_precision_parse(char *str_arg, size_t i, size_t counter, lst_arg *out);
 
 void	parse_args(const char *s, size_t z, lst_arg *out)
 {
@@ -20,27 +22,25 @@ void	parse_args(const char *s, size_t z, lst_arg *out)
 
 	str_arg = NULL;
 	arg_len = find_len(s, z);
+	out->length = arg_len;
 	str_arg = ft_substr(s, z, arg_len);
 	if (str_arg == NULL)
 		return ;
-	ft_decode_to_struct(str_arg, arg_len, out);
+	ft_flags_parse(str_arg, arg_len, out);
 	free(str_arg);
 	str_arg = NULL;
 	return ;
 }
 
-void ft_decode_to_struct(char *str_arg, size_t i, lst_arg *out)
+static void ft_flags_parse(char *str_arg, size_t i, lst_arg *out)
 {
 	size_t	counter;
-	int		flag_or_zero;
-	char	*address_dot;
+	int	flag_or_zero;
 
 	counter = 0;
-	address_dot = NULL;
+	flag_or_zero = 0;
 	out->specifier = str_arg[i - 1];
 	out->length = i;
-	flag_or_zero = 0;
-
 	while (counter != i)
 	{
 		if (digit(str_arg[counter]) == 1 && flag_or_zero == 0)
@@ -55,6 +55,18 @@ void ft_decode_to_struct(char *str_arg, size_t i, lst_arg *out)
 			out->is_plus = 1;
 		if (str_arg[counter] == ' ')
 			out->is_space = 1;
+		ft_precision_parse(str_arg, i, counter, out);
+		counter++;
+	}
+}
+
+static void	ft_precision_parse(char *str_arg, size_t i, size_t counter, lst_arg *out)
+{
+	char	*address_dot;
+
+	address_dot = NULL;
+	while (counter != i)
+	{
 		if (str_arg[counter] == '.')
 		{
 			if (str_arg[counter + 1] == out->specifier)
