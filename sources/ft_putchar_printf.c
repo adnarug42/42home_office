@@ -6,41 +6,21 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:19:59 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/17 11:28:26 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:19:08 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include <stdio.h>
 
-int	ft_putchar_printf(char c, lst_arg *arg, int fd)
+int	ft_putchar_printf(char c, t_arg *arg, int *sub_counter)
 {
 	int		width;
-	int		z;
 
-	z = 0;
 	width = arg->width;
-//	printf ("width %d minus %d", width, arg->is_minus);
 	if (arg->is_minus == 0 && width != 0)
-	{
-		width = width - 1;
-		while (width > 0)
-		{
-			write (1, " ", 1);
-			width--;
-			z++;
-		}
-	}
-	write (1, &c, fd);
+		write_width(width - 1, sub_counter);
+	write (1, &c, 1);
 	if (arg->is_minus == 1 && width != 0)
-	{
-		width = width - 1;
-		while (width > 0)
-		{
-			write (1, " ", 1);
-			width--;
-			z++;
-		}
-	}
-	return (z + 1);
+		write_width(width - 1, sub_counter);
+	return (*sub_counter + 1);
 }

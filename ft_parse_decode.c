@@ -6,16 +6,17 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/24 17:32:38 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:13:19 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
-#include <stdio.h>
-static void ft_flags_parse(char *str_arg, size_t i, lst_arg *out);
-static void	ft_precision_parse(char *str_arg, size_t i, size_t counter, lst_arg *out);
 
-void	parse_args(const char *s, size_t z, lst_arg *out)
+static void	ft_flags_parse(char *str_arg, size_t i, t_arg *out);
+static void	ft_precision_parse(char *str_arg, size_t i, \
+			size_t counter, t_arg *out);
+
+void	parse_args(const char *s, size_t z, t_arg *out)
 {
 	size_t	arg_len;
 	char	*str_arg;
@@ -32,10 +33,10 @@ void	parse_args(const char *s, size_t z, lst_arg *out)
 	return ;
 }
 
-static void ft_flags_parse(char *str_arg, size_t i, lst_arg *out)
+static void	ft_flags_parse(char *str_arg, size_t i, t_arg *out)
 {
 	size_t	counter;
-	int	flag_or_zero;
+	int		flag_or_zero;
 
 	counter = 0;
 	flag_or_zero = 0;
@@ -60,7 +61,8 @@ static void ft_flags_parse(char *str_arg, size_t i, lst_arg *out)
 	}
 }
 
-static void	ft_precision_parse(char *str_arg, size_t i, size_t counter, lst_arg *out)
+static void	ft_precision_parse(char *str_arg, size_t i, \
+			size_t counter, t_arg *out)
 {
 	char	*address_dot;
 
@@ -75,9 +77,10 @@ static void	ft_precision_parse(char *str_arg, size_t i, size_t counter, lst_arg 
 				out->precision = ft_atoi(str_arg + counter + 1);
 			address_dot = &str_arg[counter];
 		}
-		if ((digit(str_arg[counter]) == 1) && (out->width == 0) && ((&str_arg[counter] < address_dot) || (address_dot == NULL)))
+		if ((digit(str_arg[counter]) == 1) && (out->width == 0) && \
+		((&str_arg[counter] < address_dot) || (address_dot == NULL)))
 			out->width = ft_atoi(str_arg + counter);
-		counter++; 
+		counter++;
 	}
 	if (address_dot != NULL)
 		address_dot = NULL;

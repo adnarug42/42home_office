@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:22:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 15:07:14 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:23:42 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,10 @@ int	ft_hex_up(int num, int *sub_counter, int *sign_flag)
 	else
 	{
 		if ((unsigned)num <= 9)
-		{
 			ft_putchar_fd(((unsigned)num + '0'), 1);
-			*sub_counter += 1;
-		}
 		else
-		{
 			ft_putchar_fd((num - 10 + 'A'), 1);
-			*sub_counter += 1;
-		}
+		*sub_counter += 1;
 	}
 	return (*sub_counter);
 }

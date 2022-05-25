@@ -6,13 +6,14 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 12:09:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/23 16:08:16 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:14:13 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void ft_minus_width(int (*f)(int, int *, int *), lst_arg *arg, int integer, int *sub_counter)
+void	ft_minus_width(int (*f)(int, int *, int *), \
+		t_arg *arg, int integer, int *sub_counter)
 {
 	int	len;
 	int	width;
@@ -23,28 +24,14 @@ void ft_minus_width(int (*f)(int, int *, int *), lst_arg *arg, int integer, int 
 	sign_flag = malloc(sizeof(size_t));
 	*sign_flag = 0;
 	if (width > 0 && arg->is_minus == 0)
-	{
-		while (width > 0)
-		{
-			write (1, " ", 1);
-			width--;
-			*sub_counter += 1;
-		} 
-	}
-	if (arg->precision )
+		write_width(width, sub_counter);
 	len = f(integer, sub_counter, sign_flag);
-	// printf ("width %d len %d integer %d sub counter %d sign flag %d", width, len, integer, *sub_counter, *sign_flag);
 	if (*sign_flag == 1)
 		len += 1;
 	if (arg->is_minus == 1 && width > len)
 	{
 		width = width - len;
-		while (width > 0)
-		{
-			write (1, " ", 1);
-			width--;
-			*sub_counter += 1;
-		} 
+		write_width(width, sub_counter);
 	}
 	free(sign_flag);
 }

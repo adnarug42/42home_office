@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision.c                                     :+:      :+:    :+:   */
+/*   ft_precision_string.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:55:54 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/23 16:09:12 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:35:42 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ int	ft_precision_string(char *str, int i)
 
 	counter = 0;
 	if (i == -1)
-		return 0;
-	//printf ("length: %d", i);
-		while(i != 0 && str[counter] != '\0')
-		{
-			write(1, &str[counter], 1);
-			counter++;
-			i--;
-		}
+		return (0);
+	while (i != 0 && str[counter] != '\0')
+	{
+		write(1, &str[counter], 1);
+		counter++;
+		i--;
+	}
 	return (counter);
 }

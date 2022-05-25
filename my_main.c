@@ -20,5 +20,5 @@ int main()
  my_len = ft_printf(" %.2u", -1);
  print_len = printf(" %.2u", -1);
  printf("\nmy len: %d print len: %d", my_len, print_len);
-    return (0);
+	return (0);
 }

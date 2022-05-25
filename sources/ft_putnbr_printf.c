@@ -6,19 +6,16 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:45:26 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/19 12:49:11 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:41:28 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#define LONG_MIN -__LONG_MAX__ -1L
-#define LONG_MAX 2147483647
 
 int	ft_putnbr_printf(int n, int *sub_counter, int *sign_flag)
 {	
-
 	if ((long)n > LONG_MAX || (long)n < LONG_MIN)
-		return 0;
+		return (0);
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("2147483648", 1);
@@ -34,7 +31,7 @@ int	ft_putnbr_printf(int n, int *sub_counter, int *sign_flag)
 	{
 		ft_putchar_fd(n + '0', 1);
 		*sub_counter += 1;
-		return 1;
+		return (1);
 	}
 	ft_putnbr_printf(n / 10, sub_counter, sign_flag);
 	*sub_counter += 1;

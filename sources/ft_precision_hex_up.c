@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 11:34:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/24 13:36:36 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:34:29 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include <stdio.h>
 
-int	ft_precision_hex_up(int precision, int num,  int *sub_counter)
+int	ft_precision_hex_up(int precision, int num, int *sub_counter)
 {
-	int	i;
-	unsigned int num2;
-	int counter;
+	int				i;
+	unsigned int	num2;
+	int				counter;
 
 	i = 0;
 	num2 = (unsigned) num;
@@ -39,7 +38,6 @@ int	ft_precision_hex_up(int precision, int num,  int *sub_counter)
 	ft_hex_counter(num, sub_counter);
 	i = *sub_counter;
 	*sub_counter = 0;
-	// printf (" i is: %d and precision is: %d ", i, precision);
 	precision = precision - i;
 	while (precision > 0)
 	{
