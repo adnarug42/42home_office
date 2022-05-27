@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:01:49 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/16 13:37:44 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:38:45 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include	<unistd.h>
 # include	<stdlib.h>
-# include 	<stdio.h> //* DELETE
 
 typedef struct s_list
 {

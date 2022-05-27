@@ -6,12 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/25 16:19:30 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:36:54 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-#include <stdio.h> //TO REMOVE
+#include "../include/ft_printf.h"
 
 static void	find_args(const char *s, va_list ap, int *str_len, t_arg *arg);
 static void	struct_default(t_arg *arg);

@@ -6,12 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/25 16:19:42 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:06:46 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
-
+#include "../include/ft_printf.h"
 
 static void	write_int_dec(int integer, t_arg *arg, \
 			int *counter, int *sub_counter);

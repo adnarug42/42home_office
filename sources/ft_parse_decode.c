@@ -6,11 +6,11 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/25 16:13:19 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:06:35 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "../include/ft_printf.h"
 
 static void	ft_flags_parse(char *str_arg, size_t i, t_arg *out);
 static void	ft_precision_parse(char *str_arg, size_t i, \
