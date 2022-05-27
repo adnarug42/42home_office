@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:19:59 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/25 16:19:08 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:45:04 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	ft_putchar_printf(char c, t_arg *arg, int *sub_counter)
 
 	width = arg->width;
 	if (arg->is_minus == 0 && width != 0)
-		write_width(width - 1, sub_counter);
+		ft_write_width(width - 1, sub_counter);
 	write (1, &c, 1);
 	if (arg->is_minus == 1 && width != 0)
-		write_width(width - 1, sub_counter);
+		ft_write_width(width - 1, sub_counter);
 	return (*sub_counter + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:58:09 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 11:06:35 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:02:21 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ static void	ft_flags_parse(char *str_arg, size_t i, t_arg *out);
 static void	ft_precision_parse(char *str_arg, size_t i, \
 			size_t counter, t_arg *out);
 
-void	parse_args(const char *s, size_t z, t_arg *out)
+void	ft_parse_args(const char *s, size_t z, t_arg *out)
 {
 	size_t	arg_len;
 	char	*str_arg;
 
 	str_arg = NULL;
-	arg_len = find_len(s, z);
+	arg_len = ft_find_len(s, z);
 	out->length = arg_len;
 	str_arg = ft_substr(s, z, arg_len);
 	if (str_arg == NULL)
@@ -44,7 +44,7 @@ static void	ft_flags_parse(char *str_arg, size_t i, t_arg *out)
 	out->length = i;
 	while (counter != i)
 	{
-		if (digit(str_arg[counter]) == 1 && flag_or_zero == 0)
+		if (ft_digit(str_arg[counter]) == 1 && flag_or_zero == 0)
 			flag_or_zero = 1;
 		if (str_arg[counter] == '#')
 			out->is_hash = 1;
@@ -77,7 +77,7 @@ static void	ft_precision_parse(char *str_arg, size_t i, \
 				out->precision = ft_atoi(str_arg + counter + 1);
 			address_dot = &str_arg[counter];
 		}
-		if ((digit(str_arg[counter]) == 1) && (out->width == 0) && \
+		if ((ft_digit(str_arg[counter]) == 1) && (out->width == 0) && \
 		((&str_arg[counter] < address_dot) || (address_dot == NULL)))
 			out->width = ft_atoi(str_arg + counter);
 		counter++;

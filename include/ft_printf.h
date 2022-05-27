@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/25 16:55:49 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:07:54 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 # define SPECIFIERS "cspdiuxX%%"
+# define FLAGS ".0123456789+-# "
 # define LONG_MIN	-2147483648
 # define LONG_MAX	2147483647
 # define ULONG_MAX	4294967295
@@ -32,10 +33,10 @@ typedef struct s_arg
 	char			specifier;
 }	t_arg;
 
-size_t		find_len(const char *s, size_t arg_start);
+size_t		ft_find_len(const char *s, size_t arg_start);
 void		ft_decode_to_struct(const char *str_arg, size_t i, t_arg *out);
-void		parse_args(const char *s, size_t z, t_arg *out);
-void		write_struct(t_arg *first_arg, va_list ap, int *counter);
+void		ft_parse_args(const char *s, size_t z, t_arg *out);
+void		ft_write_struct(t_arg *first_arg, va_list ap, int *counter);
 int			ft_hex_up(int i, int *sub_counter, int *sign_flag);
 int			ft_hex_low(int num, int *sub_counter, int *sign_flag);
 void		ft_hex_low_pointer(unsigned long num, int *hex_counter);
@@ -46,7 +47,7 @@ int			ft_put_pointer(void *pointer, t_arg *out, int *sub_counter);
 int			ft_putnbr_with_zeroes(int precision, int num, int *sub_counter);
 int			ft_sign(int i);
 int			ft_space_sign(int i);
-int			digit(int c);
+int			ft_digit(int c);
 int			ft_putstr_printf(char *s, t_arg *arg, int *sub_counter);
 int			ft_putchar_printf(char s, t_arg *arg, int *sub_counter);
 void		ft_minus_width(int (*f)(int, int*, int*), t_arg *arg, \
@@ -57,6 +58,13 @@ int			ft_printf(const char *s, ...);
 int			ft_precision_hex_low(int precision, int num, int *sub_counter);
 int			ft_precision_hex_up(int precision, int num, int *sub_counter);
 int			ft_hex_counter(int num, int *sub_counter);
-void		write_width(int width, int *sub_counter);
+void		ft_write_width(int width, int *sub_counter);
+void		ft_write_zeroes(int width, int *sub_counter);
+int			ft_putnbr_with_zeros_unsigned(int precision, \
+			int num, int *sub_counter);
+int			ft_putnbr_with_zeroes_pr(int precision, int num, int *sub_counter);
+int			ft_putnbr_with_zeroes_zr(int precision, int num, int *sub_counter);
+void		ft_write_hex(int long num, t_arg *arg, \
+			int *counter, int *sub_counter);
 
 #endif

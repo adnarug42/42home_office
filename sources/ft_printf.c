@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 10:40:44 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 11:36:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 11:42:54 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static void	find_args(const char *s, va_list ap, int *str_len, t_arg *arg)
 	{
 		if (s[i] == '%')
 		{
-			parse_args(s, i + 1, arg);
-			write_struct(arg, ap, str_len);
+			ft_parse_args(s, i + 1, arg);
+			ft_write_struct(arg, ap, str_len);
 			i += arg->length;
 			arg->width = 0;
 		}

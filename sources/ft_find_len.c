@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_len.c                                         :+:      :+:    :+:   */
+/*   ft_find_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:16:24 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/09 13:04:13 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:01:15 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-size_t	find_len(const char *s, size_t arg_start)
+size_t	ft_find_len(const char *s, size_t arg_start)
 {
 	size_t	len;
 

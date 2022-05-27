@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 11:06:46 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:11:32 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 static void	write_int_dec(int integer, t_arg *arg, \
 			int *counter, int *sub_counter);
 static void	write_str(char *s, t_arg *arg, int *counter, int *sub_counter);
-static void	write_hex(int long num, t_arg *arg, \
-			int *counter, int *sub_counter);
 static void	write_unsigned(int num, t_arg *arg, \
 			int *counter, int *sub_counter);
 
-void	write_struct(t_arg *arg, va_list ap, int *counter)
+void	ft_write_struct(t_arg *arg, va_list ap, int *counter)
 {
 	int		integer;
 	int		*sub_counter;
@@ -42,7 +40,7 @@ void	write_struct(t_arg *arg, va_list ap, int *counter)
 	if (arg->specifier == 'p')
 		*counter += ft_put_pointer(va_arg(ap, void *), arg, sub_counter);
 	if (arg->specifier == 'X' || arg->specifier == 'x')
-		write_hex(va_arg(ap, long int), arg, counter, sub_counter);
+		ft_write_hex(va_arg(ap, long int), arg, counter, sub_counter);
 	if (arg->specifier == 'u')
 		write_unsigned(va_arg(ap, int), arg, counter, sub_counter);
 	free(sub_counter);
@@ -57,7 +55,10 @@ static void	write_int_dec(int integer, t_arg *arg, \
 	if (arg->is_space == 1 && arg->is_plus != 0)
 		*counter += ft_space_sign(integer);
 	if (arg->precision != 0)
-		*counter += ft_putnbr_with_zeroes(arg->precision, integer, sub_counter);
+		*counter += ft_putnbr_with_zeroes_pr(arg->precision, \
+		integer, sub_counter);
+	else if (arg->is_zero == 1 && arg->precision == 0 && arg->is_minus == 0)
+		*counter += ft_putnbr_with_zeroes_zr(arg->width, integer, sub_counter);
 	else
 	{
 		ft_minus_width(ft_putnbr_printf, arg, integer, sub_counter);
@@ -73,41 +74,13 @@ static void	write_str(char *s, t_arg *arg, int *counter, int *sub_counter)
 		*counter += ft_putstr_printf(s, arg, sub_counter);
 }
 
-static void	write_hex(int long num, t_arg *arg, \
-			int *counter, int *sub_counter)
-{
-	if (arg->specifier == 'X')
-	{
-		if (arg->is_hash == 1)
-		{
-			write (1, "0X", 2);
-			*counter += 2;
-		}
-		if (arg->precision != 0)
-			ft_precision_hex_up(arg->precision, num, sub_counter);
-		else
-			ft_minus_width(ft_hex_up, arg, num, sub_counter);
-	}
-	if (arg->specifier == 'x')
-	{
-		if (arg->is_hash == 1)
-		{
-			write (1, "0x", 2);
-			*counter += 2;
-		}
-		if (arg->precision != 0)
-			ft_precision_hex_low(arg->precision, num, sub_counter);
-		else
-			ft_minus_width(ft_hex_low, arg, num, sub_counter);
-	}
-		*counter += *sub_counter;
-}
-
 static void	write_unsigned(int num, t_arg *arg, \
 			int *counter, int *sub_counter)
 {
 	if (arg->precision != 0)
 		ft_precision_unsigned(arg->precision, num, sub_counter);
+	else if (arg->is_zero == 1 && arg->precision == 0 && arg->is_minus == 0)
+		ft_putnbr_with_zeros_unsigned(arg->width, num, sub_counter);
 	else
 		ft_minus_width(ft_putnbr_unsigned, arg, num, sub_counter);
 	*counter += *sub_counter;
