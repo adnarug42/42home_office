@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:29:00 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 15:34:45 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 18:27:08 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,16 @@ int	ft_putstr_printf(char *s, t_arg *arg, int *sub_counter)
 		write (1, "(null)", 6);
 		return (6);
 	}
+	/*	if (s == NULL)
+	{
+		s = malloc(sizeof(char) * 7);
+		if (s == NULL)
+			return (0);
+		ft_strlcpy(s, "(null)", 7);	
+	} NE ZABUD FREE! */ 
+	//TODO: 
 	len = ft_strlen(s);
+
 	if (arg->is_minus == 0 && width > len)
 		ft_write_width(width - len, sub_counter);
 	while (s[i] != '\0')

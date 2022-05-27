@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 20:17:35 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 17:07:54 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:55:09 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # define SPECIFIERS "cspdiuxX%%"
 # define FLAGS ".0123456789+-# "
-# define LONG_MIN	-2147483648
+# define LONG_MIN	-2147483647-1
 # define LONG_MAX	2147483647
 # define ULONG_MAX	4294967295
 

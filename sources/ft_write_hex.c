@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:04:25 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 17:11:21 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 18:04:49 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_write_hex(int long num, t_arg *arg, \
 static void	write_hex_up(int long num, t_arg *arg, \
 			int *counter, int *sub_counter)
 {
-	if (arg->is_hash == 1)
+	if (arg->is_hash == 1 && (int)num != 0)
 	{
 		write (1, "0X", 2);
 		*counter += 2;
@@ -46,7 +46,7 @@ static void	write_hex_up(int long num, t_arg *arg, \
 static void	write_hex_low(int long num, t_arg *arg, \
 			int *counter, int *sub_counter)
 {
-	if (arg->is_hash == 1)
+	if (arg->is_hash == 1 && (int)num != 0)
 	{
 		write (1, "0x", 2);
 		*counter += 2;

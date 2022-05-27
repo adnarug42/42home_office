@@ -6,7 +6,7 @@
 /*   By: pguranda <pguranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 17:10:12 by pguranda          #+#    #+#             */
-/*   Updated: 2022/05/27 17:11:32 by pguranda         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:41:46 by pguranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	write_int_dec(int integer, t_arg *arg, \
 {
 	if (arg->is_plus == 1 || integer < 0)
 		*counter += ft_sign(integer);
-	if (arg->is_space == 1 && arg->is_plus != 0)
+	if (arg->is_space == 1 && arg->is_plus == 0)
 		*counter += ft_space_sign(integer);
 	if (arg->precision != 0)
 		*counter += ft_putnbr_with_zeroes_pr(arg->precision, \
